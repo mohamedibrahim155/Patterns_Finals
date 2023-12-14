@@ -23,6 +23,8 @@
 #include "Ball.h"
 #include "AsteroidGroups.h"
 #include "Asteroid.h"
+#include "FighterJet.h"
+
 struct ModelData
 {
 

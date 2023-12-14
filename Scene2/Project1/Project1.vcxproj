@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Dependencies\glad\src\glad.c" />
+    <ClCompile Include="src\FighterJet.cpp" />
     <ClCompile Include="src\Asteroid.cpp" />
     <ClCompile Include="src\AsteroidGroups.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
@@ -198,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\stb_image.h" />
+    <ClInclude Include="src\FighterJet.h" />
     <ClInclude Include="src\Asteroid.h" />
     <ClInclude Include="src\AsteroidGroups.h" />
     <ClInclude Include="src\GameObject.h" />
