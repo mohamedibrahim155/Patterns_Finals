@@ -19,6 +19,7 @@ function Scene2()
       OrientTo(60,70,-30,.3,0.1,0.5)
       WaitForSeconds(.2)
       OrientTo(-60,70,30,.9, 0.5,0.2)
+
       Endcommand(1)
 
     

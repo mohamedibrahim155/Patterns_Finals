@@ -14,33 +14,36 @@ ScaleTo::~ScaleTo()
 void ScaleTo::Start()
 {
 	timeStep = 0;
+	model->transform.SetScale(targetScale);
 }
 
 void ScaleTo::Update(float deltatime)
 {
-	timeStep += deltatime / time;
+	//timeStep += deltatime / time;
 
-	if (time == 0)
-	{
-		lerpValue = 1;
-		timeStep = 1;
-	}
-	//else if (easeInTime != 0 && timeStep <= easeInRatio)
+	//if (time == 0)
 	//{
-	//	lerpValue = EaseIn(timeStep / easeInRatio);
-	//	lerpValue *= easeInRatio;
+	//	lerpValue = 1;
+	//	timeStep = 1;
 	//}
-	//else if (easeOutTime != 0 && timeStep >= easeOutStart)
+	////else if (easeInTime != 0 && timeStep <= easeInRatio)
+	////{
+	////	lerpValue = EaseIn(timeStep / easeInRatio);
+	////	lerpValue *= easeInRatio;
+	////}
+	////else if (easeOutTime != 0 && timeStep >= easeOutStart)
+	////{
+	////	lerpValue = EaseOut((timeStep - easeOutStart) / easeOutRatio);
+	////	lerpValue *= easeOutRatio;
+	////	lerpValue += easeOutStart;
+	////}
+	//else
 	//{
-	//	lerpValue = EaseOut((timeStep - easeOutStart) / easeOutRatio);
-	//	lerpValue *= easeOutRatio;
-	//	lerpValue += easeOutStart;
+	//	lerpValue = timeStep;
 	//}
-	else
-	{
-		lerpValue = timeStep;
-	}
-	model->transform.SetScale(LerpObject(currentScale, targetScale, lerpValue));
+	//model->transform.SetScale(LerpObject(currentScale, targetScale, lerpValue));
+
+	model->transform.SetScale(targetScale);
 }
 
 void ScaleTo::SetStarted(bool isStarted)
@@ -49,11 +52,7 @@ void ScaleTo::SetStarted(bool isStarted)
 
 bool ScaleTo::IsComplete()
 {
-	if (!updatedOnce)
-	{
-		return false;
-	}
-	if (lerpValue >= 1)
+	if (model->transform.scale == targetScale)
 	{
 		return true;
 	}
@@ -63,7 +62,7 @@ bool ScaleTo::IsComplete()
 
 bool ScaleTo::IsStarted()
 {
-	return false;
+	return isStart;
 }
 
 glm::vec3 ScaleTo::LerpObject(const glm::vec3& a, const glm::vec3& b, float t)
