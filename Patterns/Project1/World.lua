@@ -1,6 +1,7 @@
 
 delayTimeScene1 =6
 delayTimeScene2 =12
+delayTimeScene3 =17
 
 function Scene1()
 	-- body
@@ -58,8 +59,6 @@ function Scene1()
      MoveAlongAxisWithTime(1,3,-20)
      OrientTo(360,90,0,5)
      Endcommand(2)  
-
-
 end
 
 
@@ -323,10 +322,121 @@ function Scene2()
       Endcommand(2)
 end
 
+  function Scene4( ... )
+
+  SetGameObject("ASTEROID40") 
+  BeginCommand("PARALLEL",1) 
+ 
+  MoveTo(0,20 ,0, 14) 
+  OrientTo(360,90,0,4) 
+  OrientTo(270,90,0,4) 
+  Endcommand(1)
+
+  SetGameObject("ASTEROID6") 
+  BeginCommand("PARALLEL",1) 
+ 
+  MoveTo(0,20 ,20, 14) 
+
+  OrientTo(270,90,0,4) 
+  Endcommand(1)
+
+  SetGameObject("ASTEROID7") 
+  BeginCommand("PARALLEL",1) 
+ 
+   MoveTo(0,-20 ,20, 14) 
+
+  Endcommand(1)
+
+  SetGameObject("SPACESHIP2") 
+  BeginCommand("SERIAL",1) 
+ 
+  MoveTo(16, -2 ,-20, 2) 
+
+  Endcommand(1)
+
+  SetGameObject("SPACESHIP2") 
+  BeginCommand("PARALLEL",1) 
+
+  OrientTo(-60,90,0,.5)
+  WaitForSeconds(.7)
+  MoveTo(-30, -3 ,-20, 2) 
+
+  OrientTo(-90,90,0,.5)
+  WaitForSeconds(.2)
+
+  OrientTo(-20,90,0,.5)
+
+  Endcommand(1)
+
+   SetGameObject("ASTEROID8") 
+  BeginCommand("PARALLEL",1) 
+
+  WaitForSeconds(1)
+  MoveTo(20, 20 ,0, 2) 
+
+  OrientTo(-60,90,0,.5)
 
 
+  OrientTo(-20,90,0,.5)
+
+
+  SetGameObject("FIGHTER9") 
+  BeginCommand("SERIAL",1) 
+
+
+  --MoveTo(20, 20 ,0, 2) 
+
+
+  Endcommand(1)
+
+  SetGameObject("FIGHTER9")
+  BeginCommand("PARALLEL",1) 
+
+   MoveTo(5, 0 ,-30, 2)
+   WaitForSeconds(1.5)
+   OrientTo(0,0,-360,1)
+   MoveTo(7, 3 ,-32, 1) 
+
+   Endcommand(1)
+
+    SetGameObject("FIGHTER10")
+  BeginCommand("PARALLEL",1) 
+
+   MoveTo(5, -2 ,-30, 2)
+
+    Endcommand(1)
+
+    SetGameObject("FIGHTER11")
+    BeginCommand("PARALLEL",1) 
+
+     MoveTo(5, 8 ,-30, 2)
+
+
+
+
+   Endcommand(1)
+ 
+end
+
+
+function Scene5()
+
+
+      SetGameObject("FIGHTER12")
+      BeginCommand("PARALLEL",1) 
+      OrientTo(0,0,720,3)
+      Endcommand(1)
+      SetGameObject("FIGHTER12")
+      BeginCommand("SERIAL",1) 
+       MoveTo(8,2,10,3)
+       Endcommand(1)
+end
 --Scene1()
 
-Scene2()
+--Scene2()
 
-Scene3()
+--Scene3()
+
+--Scene4()
+
+Scene5()

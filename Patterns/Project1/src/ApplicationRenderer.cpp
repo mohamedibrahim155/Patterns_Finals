@@ -172,7 +172,7 @@ void ApplicationRenderer::Start()
 
     Singleton::GetInstance().SetRendererPhysicsEngineAndDefaultShader(render, defaultShader, PhysicsEngine);
 
-    camera.transform.SetPosition(glm::vec3(10, 2, -40));
+    camera.transform.SetPosition(glm::vec3(8, 2, -30));
 
     Model* Sphere = new Model((char*)"Models/DefaultSphere/Sphere.ply", true);
 
@@ -210,158 +210,263 @@ void ApplicationRenderer::Start()
 
      Model* FighterJetModel = new Model("Models/FighterJet/FighterJet.ply");
 
-     spaceshipEntity = new SpaceShip();
+    // spaceshipEntity = new SpaceShip();
 
 
-     AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
-     asteroidGroup1->SetPosition(glm::vec3(190, -1, 40));
-     asteroidGroup1->SetRotation(glm::vec3(0, 90, 0));
-     asteroidGroup1->SetScale(glm::vec3(0.024));
-     asteroidGroup1->SetId("ASTEROIDGROUP1");
+//  AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
+//  asteroidGroup1->SetPosition(glm::vec3(190, -1, 40));
+//  asteroidGroup1->SetRotation(glm::vec3(0, 90, 0));
+//  asteroidGroup1->SetScale(glm::vec3(0.024));
+//  asteroidGroup1->SetId("ASTEROIDGROUP1");
+//
+//  AsteroidsGroups* asteroidGroup2 = new AsteroidsGroups(AsteroidGroupModels);
+//  asteroidGroup2->SetPosition(glm::vec3(10, -17, 80));
+//  asteroidGroup2->SetRotation(glm::vec3(0, 90, 0));
+//  asteroidGroup2->SetScale(glm::vec3(0.014));
+//  asteroidGroup2->SetId("ASTEROIDGROUP2");
+//
+//  AsteroidsGroups* asteroidGroup3 = new AsteroidsGroups(AsteroidGroupModels);
+//  asteroidGroup3->SetPosition(glm::vec3(10, 17, 80));
+//  asteroidGroup3->SetRotation(glm::vec3(0, -90, 0));
+//  asteroidGroup3->SetScale(glm::vec3(0.014));
+//  asteroidGroup3->SetId("ASTEROIDGROUP3");
+//
+//
+//  Asteroid* asteroid1 = new Asteroid(Asteroid1Model);
+//  asteroid1->SetPosition(glm::vec3(60, -1, 0));
+//  asteroid1->SetRotation(glm::vec3(0, 90, 0));
+//  asteroid1->SetScale(glm::vec3(0.034));
+//
+//  asteroid1->SetId("ASTEROID1");
+//
+//
+//
+//
+//
+//  Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
+//  asteroid2->SetPosition(glm::vec3(80, -1, -20));
+//  asteroid2->SetRotation(glm::vec3(0, 90, 0));
+//  asteroid2->SetScale(glm::vec3(0.011));
+//  asteroid2->SetId("ASTEROID2");
+//
+//  Asteroid* asteroid3 = new Asteroid(Asteroid2Model);
+//  asteroid3->SetPosition(glm::vec3(20, -3, 15));
+//  asteroid3->SetRotation(glm::vec3(90, 90, 0));
+//  asteroid3->SetScale(glm::vec3(0.008));
+//  asteroid3->SetId("ASTEROID3");
+//
+//
+//  Asteroid* asteroid4 = new Asteroid(Asteroid2Model);
+//  asteroid4->SetPosition(glm::vec3(10, 4, -15));
+//  asteroid4->SetRotation(glm::vec3(90, 90, 0));
+//  asteroid4->SetScale(glm::vec3(0.007));
+//  asteroid4->SetId("ASTEROID4");
+//
+//#pragma region SCENE 2
+//
+//
+//
+//     //SCENE 2
+//       Asteroid* asteroid16 = new Asteroid(Asteroid3Model);
+//     asteroid16->SetPosition(glm::vec3(8, 2, -25));
+//     asteroid16->SetRotation(glm::vec3(90, 90, 0));
+//     asteroid16->SetScale(glm::vec3(0.044));
+//     asteroid16->SetId("ASTEROID16");
+//    // asteroid16->model->isVisible = false;
+//
+//     FighterJet* fighter1 = new FighterJet(FighterJetModel);
+//
+//     fighter1->SetPosition(glm::vec3(5, 6, 13));
+//     fighter1->SetRotation(glm::vec3(40, 0, 0));
+//     fighter1->SetScale(glm::vec3(0.024f));
+//     fighter1->SetId("FIGHTER1");
+//
+//
+//     FighterJet* fighter2 = new FighterJet(FighterJetModel);
+//     fighter2->SetPosition(glm::vec3(0, 8, 13));
+//     fighter2->SetRotation(glm::vec3(40, 0, 0));
+//     fighter2->SetScale(glm::vec3(0.024f));
+//     fighter2->SetId("FIGHTER2");
+//
+//
+//     FighterJet* fighter3 = new FighterJet(FighterJetModel);
+//     fighter3->SetPosition(glm::vec3(-1, 7, 13));
+//     fighter3->SetRotation(glm::vec3(40, 0, 0));
+//     fighter3->SetScale(glm::vec3(0.024f));
+//     fighter3->SetId("FIGHTER3");
+//
+//
+//     FighterJet* fighter4 = new FighterJet(FighterJetModel);
+//     fighter4->SetPosition(glm::vec3(4, 0, 13));
+//     fighter4->SetRotation(glm::vec3(40, 0, 0));
+//     fighter4->SetScale(glm::vec3(0.024f));
+//     fighter4->SetId("FIGHTER4");
+//#pragma endregion
+//
+//#pragma region SCENE 3 
+//
+//     Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
+//     asteroid5->SetPosition(glm::vec3(17, 27, -13));
+//     asteroid5->SetRotation(glm::vec3(0, 90, 0));
+//     asteroid5->SetScale(glm::vec3(0.024));
+//     asteroid5->SetId("ASTEROID5");
+//     asteroid5->AddPhysicsForthisObject();
+//
+//     // SCENE 3 FIGHTERS
+//     FighterJet* fighter5 = new FighterJet(FighterJetModel);
+//     fighter5->SetPosition(glm::vec3(8, 11, -13));
+//     fighter5->SetRotation(glm::vec3(40, 0, 0));
+//     fighter5->SetScale(glm::vec3(0.024f));
+//     fighter5->SetId("FIGHTER5");
+//
+//
+//     FighterJet* fighter6 = new FighterJet(FighterJetModel);
+//     fighter6->SetPosition(glm::vec3(8, 7.0f, -10));
+//     fighter6->SetRotation(glm::vec3(40, -20, 0));
+//     fighter6->SetScale(glm::vec3(0.024f));
+//     fighter6->SetId("FIGHTER6");
+//
+//     FighterJet* fighter7 = new FighterJet(FighterJetModel);
+//     fighter7->SetPosition(glm::vec3(-1, 11.0, 13));
+//     fighter7->SetRotation(glm::vec3(40, 0, 0));
+//     fighter7->SetScale(glm::vec3(0.024f));
+//     fighter7->SetId("FIGHTER7");
+//
+//
+//     FighterJet* fighter8 = new FighterJet(FighterJetModel,DestroyShader);
+//     fighter8->SetPosition(glm::vec3(4, 0, 13));
+//     fighter8->SetRotation(glm::vec3(40, 0, 0));
+//     fighter8->SetScale(glm::vec3(0.024f));
+//     fighter8->SetId("FIGHTER8");
+//     fighter8->AddPhysicsForthisObject();
+//
+//
+//
+//     // SCENE 3 Asteroids
+//     //////////Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
+//     //////////asteroid5->SetPosition(glm::vec3(80, -1, -20));
+//     //////////asteroid5->SetRotation(glm::vec3(0, 90, 0));
+//     //////////asteroid5->SetScale(glm::vec3(0.011));
+//     //////////asteroid5->SetId("ASTEROID5");
+//
+//     //////////Asteroid* asteroid6 = new Asteroid(Asteroid2Model);
+//     //////////asteroid6->SetPosition(glm::vec3(20, -3, 15));
+//     //////////asteroid6->SetRotation(glm::vec3(90, 90, 0));
+//     //////////asteroid6->SetScale(glm::vec3(0.008));
+//     //////////asteroid6->SetId("ASTEROID6");
+//
+//
+//     //////////Asteroid* asteroid7 = new Asteroid(Asteroid2Model);
+//     //////////asteroid7->SetPosition(glm::vec3(10, 4, -15));
+//     //////////asteroid7->SetRotation(glm::vec3(90, 90, 0));
+//     //////////asteroid7->SetScale(glm::vec3(0.007));
+//     //////////asteroid7->SetId("ASTEROID7");
+//
+//
+//
+//
+//#pragma endregion
+//
+//
+//#pragma region SCENE 4
+//
+//     Asteroid* asteroid40 = new Asteroid(Asteroid2Model);
+//     asteroid40->SetPosition(glm::vec3(-1, 8, 12));
+//     asteroid40->SetRotation(glm::vec3(0, 90, 0));
+//     asteroid40->SetScale(glm::vec3(0.040f));
+//     asteroid40->SetId("ASTEROID40");
+//
+//
+//     Asteroid* asteroid6 = new Asteroid(Asteroid1Model);
+//     asteroid6->SetPosition(glm::vec3(18, 0, 10));
+//     asteroid6->SetRotation(glm::vec3(90, 90, 0));
+//     asteroid6->SetScale(glm::vec3(0.009f));
+//     asteroid6->SetId("ASTEROID6");
+//
+//      
+//
+//     Asteroid* asteroid7 = new Asteroid(Asteroid1Model);
+//     asteroid7->SetPosition(glm::vec3(15, -5, -14));
+//     asteroid7->SetRotation(glm::vec3(90, 90, 0));
+//     asteroid7->SetScale(glm::vec3(0.005f));
+//     asteroid7->SetId("ASTEROID7");
+//
+//
+//     Asteroid* asteroid8 = new Asteroid(Asteroid1Model);
+//     asteroid8->SetPosition(glm::vec3(20, -10, 0));
+//     asteroid8->SetRotation(glm::vec3(90, 90, 0));
+//     asteroid8->SetScale(glm::vec3(0.002f));
+//     asteroid8->SetId("ASTEROID8");
+//
+//
+//     FighterJet* fighter9 = new FighterJet(FighterJetModel);
+//     fighter9->SetPosition(glm::vec3(50, 2, 35));
+//     fighter9->SetRotation(glm::vec3(90, 45, 0));
+//     fighter9->SetScale(glm::vec3(0.024f));
+//     fighter9->SetId("FIGHTER9");
+//
+//     FighterJet* fighter10 = new FighterJet(FighterJetModel);
+//     fighter10->SetPosition(glm::vec3(15, -2, 35));
+//     fighter10->SetRotation(glm::vec3(90, 25, 0));
+//     fighter10->SetScale(glm::vec3(0.024f));
+//     fighter10->SetId("FIGHTER10");
+//
+//
+//     FighterJet* fighter11 = new FighterJet(FighterJetModel);
+//     fighter11->SetPosition(glm::vec3(50, 10, 70));
+//     fighter11->SetRotation(glm::vec3(90, 45, 0));
+//     fighter11->SetScale(glm::vec3(0.024f));
+//     fighter11->SetId("FIGHTER11");
+//
+//     SpaceShip* spaceshipEntity2 = new SpaceShip("SPACESHIP2");
+//     spaceshipEntity2->model->transform.SetPosition(glm::vec3(12, 6, 30));
+//     spaceshipEntity2->model->transform.SetRotation(glm::vec3(-20, 90, 0));
+//     spaceshipEntity2->model->transform.SetScale(glm::vec3(0.04f));
+//     //_model->id = "FalconFour";
+//     //SetGameObjectId(_model->id);
+//     //_model->transform.SetPosition(glm::vec3(12, 6, 30));
+//     //_model->transform.SetRotation(glm::vec3(-20, 90, 0));
+//     //_model->transform.SetScale(glm::vec3(0.04f));
+//
+//
+//
+//
+//#pragma endregion
 
-     AsteroidsGroups* asteroidGroup2 = new AsteroidsGroups(AsteroidGroupModels);
-     asteroidGroup2->SetPosition(glm::vec3(10, -17, 80));
-     asteroidGroup2->SetRotation(glm::vec3(0, 90, 0));
-     asteroidGroup2->SetScale(glm::vec3(0.014));
-     asteroidGroup2->SetId("ASTEROIDGROUP2");
-
-     AsteroidsGroups* asteroidGroup3 = new AsteroidsGroups(AsteroidGroupModels);
-     asteroidGroup3->SetPosition(glm::vec3(10, 17, 80));
-     asteroidGroup3->SetRotation(glm::vec3(0, -90, 0));
-     asteroidGroup3->SetScale(glm::vec3(0.014));
-     asteroidGroup3->SetId("ASTEROIDGROUP3");
+#pragma region SCENE 5
 
 
-     Asteroid* asteroid1 = new Asteroid(Asteroid1Model);
-     asteroid1->SetPosition(glm::vec3(60, -1, 0));
-     asteroid1->SetRotation(glm::vec3(0, 90, 0));
-     asteroid1->SetScale(glm::vec3(0.034));
-
-     asteroid1->SetId("ASTEROID1");
-
-
-
-   
-
-     Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
-     asteroid2->SetPosition(glm::vec3(80, -1, -20));
-     asteroid2->SetRotation(glm::vec3(0, 90, 0));
-     asteroid2->SetScale(glm::vec3(0.011));
-     asteroid2->SetId("ASTEROID2");
-
-     Asteroid* asteroid3 = new Asteroid(Asteroid2Model);
-     asteroid3->SetPosition(glm::vec3(20, -3, 15));
-     asteroid3->SetRotation(glm::vec3(90, 90, 0));
-     asteroid3->SetScale(glm::vec3(0.008));
-     asteroid3->SetId("ASTEROID3");
+     FighterJet* fighter12 = new FighterJet(FighterJetModel, DestroyShader);
+     fighter12->SetPosition(glm::vec3(5, 2, -33));
+     fighter12->SetRotation(glm::vec3(90, 0, 0));
+     fighter12->SetScale(glm::vec3(0.034f));
+     fighter12->SetId("FIGHTER12");
+     fighter12->AddPhysicsForthisObject();
 
 
-     Asteroid* asteroid4 = new Asteroid(Asteroid2Model);
-     asteroid4->SetPosition(glm::vec3(10, 4, -15));
-     asteroid4->SetRotation(glm::vec3(90, 90, 0));
-     asteroid4->SetScale(glm::vec3(0.007));
-     asteroid4->SetId("ASTEROID4");
+     Asteroid* asteroid10 = new Asteroid(Asteroid1Model);
+     asteroid10->SetPosition(glm::vec3(9, 1, -27));
+     asteroid10->SetRotation(glm::vec3(90, 90, 0));
+     asteroid10->SetScale(glm::vec3(0.002f));
+     asteroid10->SetId("ASTEROID10");
+     //asteroid10->AddPhysicsForthisObject();
 
+     Model* box = new Model(*defaultBox);
+     box->transform.SetPosition(glm::vec3(8, 2, 10));
+     box->id = "BOX_TRIGGER";
+     box->isVisible = true;
+     render.AddModelsAndShader(box, defaultShader);
 
-     //SCENE 2
-       Asteroid* asteroid16 = new Asteroid(Asteroid3Model);
-     asteroid16->SetPosition(glm::vec3(8, 2, -25));
-     asteroid16->SetRotation(glm::vec3(90, 90, 0));
-     asteroid16->SetScale(glm::vec3(0.044));
-     asteroid16->SetId("ASTEROID16");
-    // asteroid16->model->isVisible = false;
-
-     FighterJet* fighter1 = new FighterJet(FighterJetModel);
-
-     fighter1->SetPosition(glm::vec3(5, 6, 13));
-     fighter1->SetRotation(glm::vec3(40, 0, 0));
-     fighter1->SetScale(glm::vec3(0.024f));
-     fighter1->SetId("FIGHTER1");
-
-
-     FighterJet* fighter2 = new FighterJet(FighterJetModel);
-     fighter2->SetPosition(glm::vec3(0, 8, 13));
-     fighter2->SetRotation(glm::vec3(40, 0, 0));
-     fighter2->SetScale(glm::vec3(0.024f));
-     fighter2->SetId("FIGHTER2");
-
-
-     FighterJet* fighter3 = new FighterJet(FighterJetModel);
-     fighter3->SetPosition(glm::vec3(-1, 7, 13));
-     fighter3->SetRotation(glm::vec3(40, 0, 0));
-     fighter3->SetScale(glm::vec3(0.024f));
-     fighter3->SetId("FIGHTER3");
-
-
-     FighterJet* fighter4 = new FighterJet(FighterJetModel);
-     fighter4->SetPosition(glm::vec3(4, 0, 13));
-     fighter4->SetRotation(glm::vec3(40, 0, 0));
-     fighter4->SetScale(glm::vec3(0.024f));
-     fighter4->SetId("FIGHTER4");
-
-#pragma region SCENE 3 
-
-     Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
-     asteroid5->SetPosition(glm::vec3(17, 27, -13));
-     asteroid5->SetRotation(glm::vec3(0, 90, 0));
-     asteroid5->SetScale(glm::vec3(0.024));
-     asteroid5->SetId("ASTEROID5");
-     asteroid5->AddPhysicsForthisObject();
-
-     // SCENE 3 FIGHTERS
-     FighterJet* fighter5 = new FighterJet(FighterJetModel);
-     fighter5->SetPosition(glm::vec3(8, 11, -13));
-     fighter5->SetRotation(glm::vec3(40, 0, 0));
-     fighter5->SetScale(glm::vec3(0.024f));
-     fighter5->SetId("FIGHTER5");
-
-
-     FighterJet* fighter6 = new FighterJet(FighterJetModel);
-     fighter6->SetPosition(glm::vec3(8, 7.0f, -10));
-     fighter6->SetRotation(glm::vec3(40, -20, 0));
-     fighter6->SetScale(glm::vec3(0.024f));
-     fighter6->SetId("FIGHTER6");
-
-     FighterJet* fighter7 = new FighterJet(FighterJetModel);
-     fighter7->SetPosition(glm::vec3(-1, 11.0, 13));
-     fighter7->SetRotation(glm::vec3(40, 0, 0));
-     fighter7->SetScale(glm::vec3(0.024f));
-     fighter7->SetId("FIGHTER7");
-
-
-     FighterJet* fighter8 = new FighterJet(FighterJetModel,DestroyShader);
-     fighter8->SetPosition(glm::vec3(4, 0, 13));
-     fighter8->SetRotation(glm::vec3(40, 0, 0));
-     fighter8->SetScale(glm::vec3(0.024f));
-     fighter8->SetId("FIGHTER8");
-     fighter8->AddPhysicsForthisObject();
-
-
-
-     // SCENE 3 Asteroids
-     //Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
-     //asteroid5->SetPosition(glm::vec3(80, -1, -20));
-     //asteroid5->SetRotation(glm::vec3(0, 90, 0));
-     //asteroid5->SetScale(glm::vec3(0.011));
-     //asteroid5->SetId("ASTEROID5");
-
-     //Asteroid* asteroid6 = new Asteroid(Asteroid2Model);
-     //asteroid6->SetPosition(glm::vec3(20, -3, 15));
-     //asteroid6->SetRotation(glm::vec3(90, 90, 0));
-     //asteroid6->SetScale(glm::vec3(0.008));
-     //asteroid6->SetId("ASTEROID6");
-
-
-     //Asteroid* asteroid7 = new Asteroid(Asteroid2Model);
-     //asteroid7->SetPosition(glm::vec3(10, 4, -15));
-     //asteroid7->SetRotation(glm::vec3(90, 90, 0));
-     //asteroid7->SetScale(glm::vec3(0.007));
-     //asteroid7->SetId("ASTEROID7");
+     PhysicsObject* BoxPhyiscs = new PhysicsObject(box);
+     BoxPhyiscs->Initialize(AABB, true, STATIC);
+     BoxPhyiscs->gravityValue = 0;
+     PhysicsEngine.AddPhysicsObjects(BoxPhyiscs);
 
 
 
 
 #pragma endregion
+
 
 
 #pragma region Lights

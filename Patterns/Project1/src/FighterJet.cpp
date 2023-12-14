@@ -78,7 +78,7 @@ void FighterJet::AddPhysicsForthisObject()
 
 	fighterPhysics->DoCollisionCall([this](PhysicsObject* other)
 		{
-			if (other->model->id =="ASTEROID5")
+			if (other->model->id =="ASTEROID5" || other->model->id == "BOX_TRIGGER")
 			{
 				ISFIGHTERCOLLIDED = true;
 
@@ -86,7 +86,7 @@ void FighterJet::AddPhysicsForthisObject()
 				shader->setFloat("explosionOffset", explosionOffset);
 				explosionOffset += 0.5f;
 			}
-
+			
 		});
 
 	engine->AddPhysicsObjects(fighterPhysics);

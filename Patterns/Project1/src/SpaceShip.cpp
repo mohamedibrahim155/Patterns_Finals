@@ -20,6 +20,16 @@ SpaceShip::SpaceShip()
 	LoadModel();
 }
 
+SpaceShip::SpaceShip(const std::string id)
+{
+	this->render = Singleton::GetInstance().GetRenderer();
+	this->defaultshader = Singleton::GetInstance().GetDefaultShader();
+	this->id = id;
+
+	LoadModel();
+
+}
+
 SpaceShip::~SpaceShip()
 {
 }
@@ -27,7 +37,12 @@ SpaceShip::~SpaceShip()
 void SpaceShip:: LoadModel()
 {
 	model = new Model("Models/SpaceShip/SpaceShip.ply");
-	model->id = "SPACESHIP";
+	if (id.empty())
+	{
+		id = "SPACESHIP";
+	}
+
+	model->id = id;
 	model->transform.SetPosition(glm::vec3(0, 0,0));
 	model->transform.SetScale(glm::vec3(0.05f));
 	render->AddModelsAndShader(model, defaultshader);
