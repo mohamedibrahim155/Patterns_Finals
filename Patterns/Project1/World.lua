@@ -27,20 +27,26 @@
 
 
 SetGameObject("SPACESHIP")
-BeginCommand("PARALLEL",3) 
+BeginCommand("SERIAL",3) 
 MoveTo(1,1,0,0.2)
 OrientTo(-20,0,0,0.2)
 
-WaitForSeconds(5)
+--WaitForSeconds(5)
 
 OrientTo(-40,0,0,0.2)
 
 MoveTo(8,1,-20,.5)
 
 
-OrientTo(40,0,0,0.1)
-MoveTo(20,1,20,.5)
+OrientTo(40,0,0,0.1,1)
+MoveTo(20,1,20,.5,1)
 
 Endcommand(3)
 
+--SetGameObject("ASTEROIDGROUP1")
+--BeginCommand("PARALLEL", 2)
+--MoveTo(8,1,-20,.5)
+--
+--
+--Endcommand(2)
 

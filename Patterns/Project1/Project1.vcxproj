@@ -143,7 +143,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Dependencies\glad\src\glad.c" />
+    <ClCompile Include="src\AsteroidGroups.cpp" />
+    <ClCompile Include="src\AsteroidsGroup.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\MoveAlongOneAxisWithTime.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\SpawnObject.cpp" />
     <ClCompile Include="src\FollowObject.cpp" />
@@ -195,7 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\stb_image.h" />
+    <ClInclude Include="src\AsteroidGroups.h" />
     <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\MoveAlongOneAxisWithTime.h" />
     <ClInclude Include="src\Singleton.h" />
     <ClInclude Include="src\SpawnObject.h" />
     <ClInclude Include="src\FollowObject.h" />

@@ -170,7 +170,7 @@ void ApplicationRenderer::Start()
 
     Singleton::GetInstance().SetRendererPhysicsEngineAndDefaultShader(render, defaultShader, PhysicsEngine);
 
-    camera.transform.SetPosition(glm::vec3(8, 0, -30));
+    camera.transform.SetPosition(glm::vec3(10, 2, -40));
 
     Model* Sphere = new Model((char*)"Models/DefaultSphere/Sphere.ply", true);
 
@@ -199,17 +199,30 @@ void ApplicationRenderer::Start()
 
      Model* Sphere4 = new Model(*Sphere);
      Sphere4->id = "Sphere4";
-   //  Sphere4->transform.SetPosition(glm::vec3(0, -1, 0));
+   
+     Model* AsteroidGroupModels = new Model("Models/Asteroids/AsteroidGroup.ply");
 
-
-
-  //   //////////////////////////////////////////////////////////
-  //   //////SPACE SHIP ENTITY
-
-    // this->m_Ball = new Ball(render, defaultShader, PhysicsEngine);
-   //  m_Ball->LoadModel();
 
      spaceshipEntity = new SpaceShip();
+
+
+     AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
+     asteroidGroup1->SetPosition(glm::vec3(190, -1, 40));
+     asteroidGroup1->SetRotation(glm::vec3(0, 90, 0));
+     asteroidGroup1->SetScale(glm::vec3(0.024));
+     asteroidGroup1->SetId("ASTEROIDGROUP1");
+
+     AsteroidsGroups* asteroidGroup2 = new AsteroidsGroups(AsteroidGroupModels);
+     asteroidGroup2->SetPosition(glm::vec3(10, -17, 80));
+     asteroidGroup2->SetRotation(glm::vec3(0, 90, 0));
+     asteroidGroup2->SetScale(glm::vec3(0.014));
+     asteroidGroup2->SetId("ASTEROIDGROUP2");
+
+     AsteroidsGroups* asteroidGroup3 = new AsteroidsGroups(AsteroidGroupModels);
+     asteroidGroup3->SetPosition(glm::vec3(10, 17, 80));
+     asteroidGroup3->SetRotation(glm::vec3(0, -90, 0));
+     asteroidGroup3->SetScale(glm::vec3(0.014));
+     asteroidGroup3->SetId("ASTEROIDGROUP3");
 
 
 
@@ -290,7 +303,7 @@ void ApplicationRenderer::Render()
 
         ProcessInput(window);
 
-        glm::mat4 _projection = glm::perspective(glm::radians(camera.Zoom), (float)windowWidth / (float)WindowHeight, 0.1f, 100.0f);
+        glm::mat4 _projection = glm::perspective(glm::radians(camera.Zoom), (float)windowWidth / (float)WindowHeight, 0.1f, 1000.0f);
         glm::mat4 _view = camera.GetViewMatrix();
         glm::mat4 _skyboxview = glm::mat4(glm::mat3(camera.GetViewMatrix()));
 

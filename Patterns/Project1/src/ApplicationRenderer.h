@@ -21,6 +21,7 @@
 #include "CommandManager.h"
 #include "SpaceShip.h"
 #include "Ball.h"
+#include "AsteroidGroups.h"
 struct ModelData
 {
 

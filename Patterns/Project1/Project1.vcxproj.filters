@@ -198,6 +198,15 @@
     <ClCompile Include="src\WaitForSecond.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
+    <ClCompile Include="src\AsteroidsGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AsteroidGroups.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MoveAlongOneAxisWithTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shader.h">
@@ -361,6 +370,12 @@
     </ClInclude>
     <ClInclude Include="src\WaitForSeconds.h">
       <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AsteroidGroups.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MoveAlongOneAxisWithTime.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -18,7 +18,6 @@ void WaitForSeconds::Start()
 void WaitForSeconds::Update(float deltatime)
 {
 	timeStep += deltatime;
-	std::cout << "timeStep:" << timeStep << std::endl;
 }
 
 void WaitForSeconds::SetStarted(bool isStarted)
