@@ -5,7 +5,7 @@
 #include "WaitForSeconds.h"
 #include "MoveAlongOneAxisWithTime.h"
 #include "GameObject.h"
-
+#include "ScaleTo.h"
 #include "Sphere.h"
 
 LuaManager::LuaManager()
@@ -33,6 +33,7 @@ void LuaManager::RegisterCommands(lua_State* L)
 	lua_register(L, "SpawnObject", LuaSpawnGameObject);
 	lua_register(L, "WaitForSeconds", LuaWaitForSeconds);
 	lua_register(L, "MoveAlongAxisWithTime", LuaMoveAlongAxis);
+	lua_register(L, "ScaleTo", LuaScaleToWrapper);
 
 }
 
@@ -261,6 +262,28 @@ int LuaManager::LuaOrientToWrapper(lua_State* L)
 	}
 
 	CommandManager::GetInstance().AddCommands(command);
+	return 0;
+}
+
+int LuaManager::LuaScaleToWrapper(lua_State* L)
+{
+	int paramLength = lua_gettop(L);
+
+	float x = static_cast<float>(lua_tonumber(L, 1));
+	float y = static_cast<float>(lua_tonumber(L, 2));
+	float z = static_cast<float>(lua_tonumber(L, 3));
+
+	glm::vec3 targetScale(x, y, z);
+
+	float time = static_cast<float>(lua_tonumber(L, 4));
+
+
+	Model* model = GetInstance().model;
+
+	Command* command = new ScaleTo(model, targetScale, time);
+
+	CommandManager::GetInstance().AddCommands(command);
+
 	return 0;
 }
 

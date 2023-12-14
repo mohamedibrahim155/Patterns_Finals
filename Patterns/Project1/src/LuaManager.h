@@ -17,7 +17,7 @@ class FollowObject;
 class WaitForSeconds;
 class GameObject;
 class MoveAlongAxisWithTime;
-
+class ScaleTo;
 class SphereTest;
 
 class LuaManager
@@ -61,6 +61,7 @@ private:
 
 	static int LuaMoveToWrapper(lua_State* L);
 	static int LuaOrientToWrapper(lua_State* L);
+	static int LuaScaleToWrapper(lua_State* L);
 
 	static int LuaSetGameObject(lua_State* L);
 

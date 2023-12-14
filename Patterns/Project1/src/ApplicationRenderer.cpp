@@ -206,6 +206,7 @@ void ApplicationRenderer::Start()
      Model* Asteroid2Model= new Model("Models/Asteroids/Asteroid_2.ply");
      Model* Asteroid3Model= new Model("Models/Asteroids/Asteroid_3.ply");
 
+     Model* FighterJetModel = new Model("Models/FighterJet/FighterJet.ply");
 
      spaceshipEntity = new SpaceShip();
 
@@ -255,6 +256,34 @@ void ApplicationRenderer::Start()
      asteroid4->SetId("ASTEROID4");
 
 
+
+     FighterJet* fighter1 = new FighterJet(FighterJetModel);
+
+     fighter1->SetPosition(glm::vec3(5, 6, 13));
+     fighter1->SetRotation(glm::vec3(40, 0, 0));
+     fighter1->SetScale(glm::vec3(0.024f));
+     fighter1->SetId("FIGHTER1");
+
+
+     FighterJet* fighter2 = new FighterJet(FighterJetModel);
+     fighter2->SetPosition(glm::vec3(0, 8, 13));
+     fighter2->SetRotation(glm::vec3(40, 0, 0));
+     fighter2->SetScale(glm::vec3(0.024f));
+     fighter2->SetId("FIGHTER2");
+
+
+     FighterJet* fighter3 = new FighterJet(FighterJetModel);
+     fighter3->SetPosition(glm::vec3(-1, 7, 13));
+     fighter3->SetRotation(glm::vec3(40, 0, 0));
+     fighter3->SetScale(glm::vec3(0.024f));
+     fighter3->SetId("FIGHTER3");
+
+
+     FighterJet* fighter4 = new FighterJet(FighterJetModel);
+     fighter4->SetPosition(glm::vec3(4, 0, 13));
+     fighter4->SetRotation(glm::vec3(40, 0, 0));
+     fighter4->SetScale(glm::vec3(0.024f));
+     fighter4->SetId("FIGHTER3");
 
 #pragma region Lights
 
