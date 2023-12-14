@@ -213,6 +213,9 @@
     <ClCompile Include="src\ScaleTo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\RotateAlongAxisWithTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shader.h">
@@ -390,6 +393,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ScaleTo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RotateAlongAxisWithTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

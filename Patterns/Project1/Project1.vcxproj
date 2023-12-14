@@ -148,6 +148,7 @@
     <ClCompile Include="src\FighterJet.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\MoveAlongOneAxisWithTime.cpp" />
+    <ClCompile Include="src\RotateAlongAxisWithTime.cpp" />
     <ClCompile Include="src\ScaleTo.cpp" />
     <ClCompile Include="src\Singleton.cpp" />
     <ClCompile Include="src\SpawnObject.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="src\FighterJet.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\MoveAlongOneAxisWithTime.h" />
+    <ClInclude Include="src\RotateAlongAxisWithTime.h" />
     <ClInclude Include="src\ScaleTo.h" />
     <ClInclude Include="src\Singleton.h" />
     <ClInclude Include="src\SpawnObject.h" />

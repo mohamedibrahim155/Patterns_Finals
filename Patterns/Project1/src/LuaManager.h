@@ -18,6 +18,7 @@ class WaitForSeconds;
 class GameObject;
 class MoveAlongAxisWithTime;
 class ScaleTo;
+class RotateAlongAxisWithTime;
 class SphereTest;
 
 class LuaManager
@@ -71,6 +72,7 @@ private:
 
 	static  int LuaWaitForSeconds(lua_State* L);
 	static  int LuaMoveAlongAxis(lua_State* L);
+	static  int LuaRotateAlongAxis(lua_State* L);
 
 	Model* model;
 
