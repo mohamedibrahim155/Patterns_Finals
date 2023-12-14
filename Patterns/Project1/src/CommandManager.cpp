@@ -1,5 +1,5 @@
 #include "CommandManager.h"
-
+#include <iostream>
 
 CommandManager::CommandManager()
 {
@@ -23,6 +23,11 @@ CommandManager& CommandManager::GetInstance()
 
 void CommandManager::AddCommands( Command* command)
 {
+	if (currentCommandGroup == nullptr)
+	{
+		std::cout << " Command Group is NULL" << std::endl;
+		return;
+	}
 	if (currentCommandGroup->groupType == SERIES)
 	{
 		currentCommandGroup->AddSerialCommand(command);

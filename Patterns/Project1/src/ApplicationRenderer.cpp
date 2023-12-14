@@ -213,64 +213,64 @@ void ApplicationRenderer::Start()
      spaceshipEntity = new SpaceShip();
 
 
-     //AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
-     //asteroidGroup1->SetPosition(glm::vec3(190, -1, 40));
-     //asteroidGroup1->SetRotation(glm::vec3(0, 90, 0));
-     //asteroidGroup1->SetScale(glm::vec3(0.024));
-     //asteroidGroup1->SetId("ASTEROIDGROUP1");
+     AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
+     asteroidGroup1->SetPosition(glm::vec3(190, -1, 40));
+     asteroidGroup1->SetRotation(glm::vec3(0, 90, 0));
+     asteroidGroup1->SetScale(glm::vec3(0.024));
+     asteroidGroup1->SetId("ASTEROIDGROUP1");
 
-     //AsteroidsGroups* asteroidGroup2 = new AsteroidsGroups(AsteroidGroupModels);
-     //asteroidGroup2->SetPosition(glm::vec3(10, -17, 80));
-     //asteroidGroup2->SetRotation(glm::vec3(0, 90, 0));
-     //asteroidGroup2->SetScale(glm::vec3(0.014));
-     //asteroidGroup2->SetId("ASTEROIDGROUP2");
+     AsteroidsGroups* asteroidGroup2 = new AsteroidsGroups(AsteroidGroupModels);
+     asteroidGroup2->SetPosition(glm::vec3(10, -17, 80));
+     asteroidGroup2->SetRotation(glm::vec3(0, 90, 0));
+     asteroidGroup2->SetScale(glm::vec3(0.014));
+     asteroidGroup2->SetId("ASTEROIDGROUP2");
 
-     //AsteroidsGroups* asteroidGroup3 = new AsteroidsGroups(AsteroidGroupModels);
-     //asteroidGroup3->SetPosition(glm::vec3(10, 17, 80));
-     //asteroidGroup3->SetRotation(glm::vec3(0, -90, 0));
-     //asteroidGroup3->SetScale(glm::vec3(0.014));
-     //asteroidGroup3->SetId("ASTEROIDGROUP3");
+     AsteroidsGroups* asteroidGroup3 = new AsteroidsGroups(AsteroidGroupModels);
+     asteroidGroup3->SetPosition(glm::vec3(10, 17, 80));
+     asteroidGroup3->SetRotation(glm::vec3(0, -90, 0));
+     asteroidGroup3->SetScale(glm::vec3(0.014));
+     asteroidGroup3->SetId("ASTEROIDGROUP3");
 
 
-     //Asteroid* asteroid1 = new Asteroid(Asteroid1Model);
-     //asteroid1->SetPosition(glm::vec3(60, -1, 0));
-     //asteroid1->SetRotation(glm::vec3(0, 90, 0));
-     //asteroid1->SetScale(glm::vec3(0.034));
+     Asteroid* asteroid1 = new Asteroid(Asteroid1Model);
+     asteroid1->SetPosition(glm::vec3(60, -1, 0));
+     asteroid1->SetRotation(glm::vec3(0, 90, 0));
+     asteroid1->SetScale(glm::vec3(0.034));
 
-     //asteroid1->SetId("ASTEROID1");
+     asteroid1->SetId("ASTEROID1");
 
 
 
    
 
-     //Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
-     //asteroid2->SetPosition(glm::vec3(80, -1, -20));
-     //asteroid2->SetRotation(glm::vec3(0, 90, 0));
-     //asteroid2->SetScale(glm::vec3(0.011));
-     //asteroid2->SetId("ASTEROID2");
+     Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
+     asteroid2->SetPosition(glm::vec3(80, -1, -20));
+     asteroid2->SetRotation(glm::vec3(0, 90, 0));
+     asteroid2->SetScale(glm::vec3(0.011));
+     asteroid2->SetId("ASTEROID2");
 
-     //Asteroid* asteroid3 = new Asteroid(Asteroid2Model);
-     //asteroid3->SetPosition(glm::vec3(20, -3, 15));
-     //asteroid3->SetRotation(glm::vec3(90, 90, 0));
-     //asteroid3->SetScale(glm::vec3(0.008));
-     //asteroid3->SetId("ASTEROID3");
-
-
-     //Asteroid* asteroid4 = new Asteroid(Asteroid2Model);
-     //asteroid4->SetPosition(glm::vec3(10, 4, -15));
-     //asteroid4->SetRotation(glm::vec3(90, 90, 0));
-     //asteroid4->SetScale(glm::vec3(0.007));
-     //asteroid4->SetId("ASTEROID4");
+     Asteroid* asteroid3 = new Asteroid(Asteroid2Model);
+     asteroid3->SetPosition(glm::vec3(20, -3, 15));
+     asteroid3->SetRotation(glm::vec3(90, 90, 0));
+     asteroid3->SetScale(glm::vec3(0.008));
+     asteroid3->SetId("ASTEROID3");
 
 
+     Asteroid* asteroid4 = new Asteroid(Asteroid2Model);
+     asteroid4->SetPosition(glm::vec3(10, 4, -15));
+     asteroid4->SetRotation(glm::vec3(90, 90, 0));
+     asteroid4->SetScale(glm::vec3(0.007));
+     asteroid4->SetId("ASTEROID4");
 
-       //Asteroid* asteroid16 = new Asteroid(Asteroid3Model);
-     //asteroid16->SetPosition(glm::vec3(8, 2, -25));
-     //asteroid16->SetRotation(glm::vec3(90, 90, 0));
-     //asteroid16->SetScale(glm::vec3(0.044));
-     //asteroid16->SetId("ASTEROID16");
 
-  /*   FighterJet* fighter1 = new FighterJet(FighterJetModel);
+     //SCENE 2
+       Asteroid* asteroid16 = new Asteroid(Asteroid3Model);
+     asteroid16->SetPosition(glm::vec3(8, 2, -25));
+     asteroid16->SetRotation(glm::vec3(90, 90, 0));
+     asteroid16->SetScale(glm::vec3(0.044));
+     asteroid16->SetId("ASTEROID16");
+
+     FighterJet* fighter1 = new FighterJet(FighterJetModel);
 
      fighter1->SetPosition(glm::vec3(5, 6, 13));
      fighter1->SetRotation(glm::vec3(40, 0, 0));
@@ -296,44 +296,44 @@ void ApplicationRenderer::Start()
      fighter4->SetPosition(glm::vec3(4, 0, 13));
      fighter4->SetRotation(glm::vec3(40, 0, 0));
      fighter4->SetScale(glm::vec3(0.024f));
-     fighter4->SetId("FIGHTER4");*/
+     fighter4->SetId("FIGHTER4");
 
 #pragma region SCENE 3 
 
-     Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
-     asteroid5->SetPosition(glm::vec3(17, 27, -13));
-     asteroid5->SetRotation(glm::vec3(0, 90, 0));
-     asteroid5->SetScale(glm::vec3(0.024));
-     asteroid5->SetId("ASTEROID5");
-     asteroid5->AddPhysicsForthisObject();
+     //Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
+     //asteroid5->SetPosition(glm::vec3(17, 27, -13));
+     //asteroid5->SetRotation(glm::vec3(0, 90, 0));
+     //asteroid5->SetScale(glm::vec3(0.024));
+     //asteroid5->SetId("ASTEROID5");
+     //asteroid5->AddPhysicsForthisObject();
 
-     // SCENE 3 FIGHTERS
-     FighterJet* fighter5 = new FighterJet(FighterJetModel);
-     fighter5->SetPosition(glm::vec3(8, 11, -13));
-     fighter5->SetRotation(glm::vec3(40, 0, 0));
-     fighter5->SetScale(glm::vec3(0.024f));
-     fighter5->SetId("FIGHTER5");
-
-
-     FighterJet* fighter6 = new FighterJet(FighterJetModel);
-     fighter6->SetPosition(glm::vec3(8, 7.0f, -10));
-     fighter6->SetRotation(glm::vec3(40, -20, 0));
-     fighter6->SetScale(glm::vec3(0.024f));
-     fighter6->SetId("FIGHTER6");
-
-     FighterJet* fighter7 = new FighterJet(FighterJetModel);
-     fighter7->SetPosition(glm::vec3(-1, 11.0, 13));
-     fighter7->SetRotation(glm::vec3(40, 0, 0));
-     fighter7->SetScale(glm::vec3(0.024f));
-     fighter7->SetId("FIGHTER7");
+     //// SCENE 3 FIGHTERS
+     //FighterJet* fighter5 = new FighterJet(FighterJetModel);
+     //fighter5->SetPosition(glm::vec3(8, 11, -13));
+     //fighter5->SetRotation(glm::vec3(40, 0, 0));
+     //fighter5->SetScale(glm::vec3(0.024f));
+     //fighter5->SetId("FIGHTER5");
 
 
-     FighterJet* fighter8 = new FighterJet(FighterJetModel,DestroyShader);
-     fighter8->SetPosition(glm::vec3(4, 0, 13));
-     fighter8->SetRotation(glm::vec3(40, 0, 0));
-     fighter8->SetScale(glm::vec3(0.024f));
-     fighter8->SetId("FIGHTER8");
-     fighter8->AddPhysicsForthisObject();
+     //FighterJet* fighter6 = new FighterJet(FighterJetModel);
+     //fighter6->SetPosition(glm::vec3(8, 7.0f, -10));
+     //fighter6->SetRotation(glm::vec3(40, -20, 0));
+     //fighter6->SetScale(glm::vec3(0.024f));
+     //fighter6->SetId("FIGHTER6");
+
+     //FighterJet* fighter7 = new FighterJet(FighterJetModel);
+     //fighter7->SetPosition(glm::vec3(-1, 11.0, 13));
+     //fighter7->SetRotation(glm::vec3(40, 0, 0));
+     //fighter7->SetScale(glm::vec3(0.024f));
+     //fighter7->SetId("FIGHTER7");
+
+
+     //FighterJet* fighter8 = new FighterJet(FighterJetModel,DestroyShader);
+     //fighter8->SetPosition(glm::vec3(4, 0, 13));
+     //fighter8->SetRotation(glm::vec3(40, 0, 0));
+     //fighter8->SetScale(glm::vec3(0.024f));
+     //fighter8->SetId("FIGHTER8");
+     //fighter8->AddPhysicsForthisObject();
 
 
 
@@ -552,7 +552,7 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (!updateCommands)
+  //  if (!updateCommands)
     {
         float cameraSpeed = 20;
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -620,8 +620,8 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
          if (key == GLFW_KEY_O && action == GLFW_PRESS)
          {
 
-             camera.transform.SetPosition(glm::vec3(10, 2, -40));
-             camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
+             //camera.transform.SetPosition(glm::vec3(10, 2, -40));
+            // camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
 
              updateCommands = !updateCommands;
          }
@@ -653,7 +653,7 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
          lastX = xpos;
          lastY = ypos;
      
-         if (!updateCommands)
+        // if (!updateCommands)
          {
              if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS)
              {

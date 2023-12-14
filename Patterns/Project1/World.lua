@@ -1,5 +1,6 @@
 
-scne1time =5
+delayTimeScene1 =5
+delayTimeScene2 =5
 
 function Scene1()
 	-- body
@@ -57,6 +58,8 @@ function Scene1()
      MoveAlongAxisWithTime(1,3,-20)
      OrientTo(360,90,0,5)
      Endcommand(2)  
+
+
 end
 
 
@@ -65,13 +68,35 @@ end
 function Scene2()
 	-- body
 
+    --RESETING previous sequences models
+   
+       SetGameObject("ASTEROIDGROUP1")
+       BeginCommand("SERIAL",1) 
+       WaitForSeconds(delayTimeScene1)
+       ScaleTo(0,0,0,0)
+       SetGameObject("ASTEROIDGROUP2")
+       ScaleTo(0,0,0,0)
+       SetGameObject("ASTEROIDGROUP3")
+       ScaleTo(0,0,0,0)
+       SetGameObject("ASTEROID1")
+       ScaleTo(0,0,0,0)
+       SetGameObject("ASTEROID2")
+       ScaleTo(0,0,0,0)
+       SetGameObject("ASTEROID3")
+       ScaleTo(0,0,0,0)
+       SetGameObject("ASTEROID4")
+       ScaleTo(0,0,0,0)
+       Endcommand(1)
+
     --- DEFAULT POSITION AND ROTATION VALUES
        SetGameObject("SPACESHIP")
        BeginCommand("SERIAL",1) 
+
+        WaitForSeconds(delayTimeScene1)
+
         MoveTo(-2, 6,3,0)
         OrientTo(40, 90,0,0)
         ScaleTo(0.02,0.02,0.02,0)
-       
 
         SetGameObject("ASTEROID16")
         MoveTo(8, 2, -25,0)
@@ -83,10 +108,9 @@ function Scene2()
         Endcommand(1)
 
 
-
-
       SetGameObject("SPACESHIP")
       BeginCommand("SERIAL",1)  -- First param as string ->(SERIAL or PARALLEL) |  second param ->  A unique group ID required
+      WaitForSeconds(delayTimeScene1)
       MoveTo(-1,5,-1,1.9,0.2,0.9)
       MoveTo(13,1,-40, 1,0.8,0.2)
       Endcommand(1)
@@ -94,6 +118,7 @@ function Scene2()
       
       SetGameObject("SPACESHIP")
       BeginCommand("PARALLEL",1)  -- First param as string ->(SERIAL or PARALLEL) |  second param ->  A unique group ID required
+      WaitForSeconds(delayTimeScene1)
       OrientTo(70,90,-40,2,0.5,0.4)
       WaitForSeconds(2)
       OrientTo(60,70,-30,.3,0.1,0.5)
@@ -105,6 +130,7 @@ function Scene2()
     
       SetGameObject("ASTEROID16")
       BeginCommand("PARALLEL", 2)
+      WaitForSeconds(delayTimeScene1)
       MoveTo(30,2,80,18)
       OrientTo(-360,360,0,18)
       Endcommand(2)
@@ -112,6 +138,8 @@ function Scene2()
     --  
      SetGameObject("FIGHTER1")
      BeginCommand("SERIAL",2) 
+     WaitForSeconds(delayTimeScene1)
+
      WaitForSeconds(2)
      MoveTo(-1,5,-5,1.9)
      MoveTo(13,1,-45, 1)
@@ -120,6 +148,8 @@ function Scene2()
       
       SetGameObject("FIGHTER1")
       BeginCommand("PARALLEL",2) 
+      WaitForSeconds(delayTimeScene1)
+
       WaitForSeconds(2)
       OrientTo(90,-60,0,2)
       WaitForSeconds(2)
@@ -133,6 +163,8 @@ function Scene2()
     --
       SetGameObject("FIGHTER2")
       BeginCommand("SERIAL",2) 
+      WaitForSeconds(delayTimeScene1)
+
       WaitForSeconds(2)
       MoveTo(0,-1,-13,1.9)
       MoveTo(13,-1,-45, 1)
@@ -141,6 +173,8 @@ function Scene2()
      
      SetGameObject("FIGHTER2")
      BeginCommand("PARALLEL",2) 
+     WaitForSeconds(delayTimeScene1)
+
      WaitForSeconds(2)
      OrientTo(90,-60,0,2)
      WaitForSeconds(2)
@@ -153,6 +187,8 @@ function Scene2()
      
      SetGameObject("FIGHTER3")
      BeginCommand("SERIAL",2) 
+     WaitForSeconds(delayTimeScene1)
+
      WaitForSeconds(2)
      MoveTo(-1,2,-2, 1.9)
      MoveTo(13,2,-45, 1)
@@ -161,6 +197,8 @@ function Scene2()
      
      SetGameObject("FIGHTER3")
      BeginCommand("PARALLEL",2) 
+     WaitForSeconds(delayTimeScene1)
+
      WaitForSeconds(2)
      OrientTo(90,-60,0,2)
      WaitForSeconds(2)
@@ -172,6 +210,8 @@ function Scene2()
      
      SetGameObject("FIGHTER4")
      BeginCommand("SERIAL",2) 
+     WaitForSeconds(delayTimeScene1)
+
      WaitForSeconds(2)
      MoveTo(-1,5,-9,1.9)
      MoveTo(13,5,-45, 1)
@@ -180,6 +220,8 @@ function Scene2()
     
      SetGameObject("FIGHTER4")
      BeginCommand("PARALLEL",2) 
+     WaitForSeconds(delayTimeScene1)
+
      WaitForSeconds(2)
      OrientTo(90,-60,0,2)
      WaitForSeconds(2)
@@ -192,82 +234,81 @@ function Scene2()
 
  function Scene3()
 	-- body
-    -- RESETING TO to DEFAULT 
-    -- SetGameObject("FIGHTER1")
-    -- BeginCommand("SERIAL",2) 
-    --  ScaleTo(0,0,0,0)
-    --  SetGameObject("FIGHTER2")
-    --  ScaleTo(0,0,0,0)
-    --  SetGameObject("FIGHTER3")
-    --  ScaleTo(0,0,0,0)
-    --  SetGameObject("FIGHTER4")
-    --  ScaleTo(0,0,0,0)
-    --  SetGameObject("ASTEROID16")
-    --  ScaleTo(0,0,0,0)
-    --  SetGameObject("SPACESHIP")
-    --  ScaleTo(0,0,0,0)
-    -- Endcommand(2)
-
-   SetGameObject("FIGHTER5")
-   BeginCommand("SERIAL",2) 
-   MoveTo(8, 1.0, -13,1)
-   Endcommand(2)
-
-   SetGameObject("FIGHTER5")
-   BeginCommand("PARALLEL",2) 
-   OrientTo(90,0,20,2)
-   WaitForSeconds(.4)
-   MoveTo(8, -1.0, -50,1)
-   Endcommand(2)
-
-   SetGameObject("FIGHTER6")
-   BeginCommand("SERIAL",2) 
-   MoveTo(8, 0.0, -11,1)
-   Endcommand(2)
-
-   SetGameObject("FIGHTER6")
-   BeginCommand("PARALLEL",2) 
-   OrientTo(90,0 ,10,.3)
-   WaitForSeconds(.4)
-   MoveTo(17,0.0,-45,1)
-   Endcommand(2)
+     --RESETING TO to DEFAULT 
+     SetGameObject("FIGHTER1")
+     BeginCommand("SERIAL",2) 
+      ScaleTo(0,0,0,0)
+      SetGameObject("FIGHTER2")
+      ScaleTo(0,0,0,0)
+      SetGameObject("FIGHTER3")
+      ScaleTo(0,0,0,0)
+      SetGameObject("FIGHTER4")
+      ScaleTo(0,0,0,0)
+      SetGameObject("ASTEROID16")
+      ScaleTo(0,0,0,0)
+      SetGameObject("SPACESHIP")
+      ScaleTo(0,0,0,0)
+     Endcommand(2)
 
 
-   SetGameObject("FIGHTER7")
-   BeginCommand("SERIAL",2) 
-   MoveTo(5, 1.0, -50,2)
-   Endcommand(2)
-
-   SetGameObject("FIGHTER7")
-   BeginCommand("PARALLEL",2) 
-   OrientTo(90,0 ,10,.3)
-   Endcommand(2)
-
-
-   SetGameObject("FIGHTER8")
-   BeginCommand("SERIAL",2) 
-   MoveTo(8,0.0,-23,4)
-   Endcommand(2)
-
-
-   SetGameObject("FIGHTER8")
-   BeginCommand("PARALLEL",2) 
-   OrientTo(90,0 ,10,.3)
-   Endcommand(2)
-
-
-   SetGameObject("ASTEROID5")
-   BeginCommand("PARALLEL",2) 
-    MoveTo(0,-20 ,0, 4)
-   Endcommand(2)
-
-
+      SetGameObject("FIGHTER5")
+      BeginCommand("SERIAL",2) 
+      MoveTo(8, 1.0, -13,1)
+      Endcommand(2)
+      
+      SetGameObject("FIGHTER5")
+      BeginCommand("PARALLEL",2) 
+      OrientTo(90,0,20,2)
+      WaitForSeconds(.4)
+      MoveTo(8, -1.0, -50,1)
+      Endcommand(2)
+      
+      SetGameObject("FIGHTER6")
+      BeginCommand("SERIAL",2) 
+      MoveTo(8, 0.0, -11,1)
+      Endcommand(2)
+      
+      SetGameObject("FIGHTER6")
+      BeginCommand("PARALLEL",2) 
+      OrientTo(90,0 ,10,.3)
+      WaitForSeconds(.4)
+      MoveTo(17,0.0,-45,1)
+      Endcommand(2)
+      
+      
+      SetGameObject("FIGHTER7")
+      BeginCommand("SERIAL",2) 
+      MoveTo(5, 1.0, -50,2)
+      Endcommand(2)
+      
+      SetGameObject("FIGHTER7")
+      BeginCommand("PARALLEL",2) 
+      OrientTo(90,0 ,10,.3)
+      Endcommand(2)
+      
+      
+      SetGameObject("FIGHTER8")
+      BeginCommand("SERIAL",2) 
+      MoveTo(8,0.0,-23,4)
+      Endcommand(2)
+      
+      
+      SetGameObject("FIGHTER8")
+      BeginCommand("PARALLEL",2) 
+      OrientTo(90,0 ,10,.3)
+      Endcommand(2)
+      
+      
+      SetGameObject("ASTEROID5")
+      BeginCommand("PARALLEL",2) 
+      MoveTo(0,-20 ,0, 4)
+      Endcommand(2)
 end
 
 
 
---Scene1()
+Scene1()
 
---Scene2()
+Scene2()
 
-Scene3()
+--Scene3()
