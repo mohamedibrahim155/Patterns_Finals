@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "PhysicsEngine.h"
 #include "GraphicsRender.h"
 class Asteroid : public   GameObject
 {
@@ -15,11 +16,17 @@ public:
 	void SetScale(const glm::vec3& scale);
 
 	void SetId(const std::string& id);
+
+	void AddPhysicsForthisObject();
 private:
 
 	GraphicsRender* renderer;
 	Shader* shader;
+	PhysicsEngine* engine;
 
 	Model* copyModel;
+
+	PhysicsObject* physicsObject = nullptr;
+
 };
 

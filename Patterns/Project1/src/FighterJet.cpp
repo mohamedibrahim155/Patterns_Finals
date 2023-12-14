@@ -6,6 +6,7 @@ FighterJet::FighterJet()
 {
 	renderer = Singleton::GetInstance().GetRenderer();
 	shader = Singleton::GetInstance().GetDefaultShader();
+	engine = Singleton::GetInstance().GetPhysicsEngine();
 
 	LoadFighterModel();
 }
@@ -14,6 +15,18 @@ FighterJet::FighterJet(Model* copyModel)
 {
 	renderer = Singleton::GetInstance().GetRenderer();
 	shader = Singleton::GetInstance().GetDefaultShader();
+	engine = Singleton::GetInstance().GetPhysicsEngine();
+
+	this->copyModel = copyModel;
+
+	LoadFighterModel();
+}
+
+FighterJet::FighterJet(Model* copyModel, Shader* DestroyShader)
+{
+	renderer = Singleton::GetInstance().GetRenderer();
+	shader = DestroyShader;
+	engine = Singleton::GetInstance().GetPhysicsEngine();
 
 	this->copyModel = copyModel;
 
@@ -53,6 +66,27 @@ void FighterJet::SetRotation(const glm::vec3& rotation)
 void FighterJet::SetScale(const glm::vec3& scale)
 {
 	model->transform.SetScale(scale);
+
+}
+
+void FighterJet::AddPhysicsForthisObject()
+{
+	fighterPhysics = new PhysicsObject(model);
+	fighterPhysics->Initialize(AABB, true, DYNAMIC);
+
+	fighterPhysics->gravityValue = 0;
+
+	fighterPhysics->DoCollisionCall([this](PhysicsObject* other)
+		{
+			if (other->model->id =="ASTEROID5")
+			{
+				std::cout << "Hit with The Asteroid 5 Successfully :( I'm dead" << std::endl;
+			}
+
+		});
+
+	engine->AddPhysicsObjects(fighterPhysics);
+
 
 }
 

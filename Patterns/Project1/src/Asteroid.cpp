@@ -4,6 +4,7 @@ Asteroid::Asteroid()
 {
 	renderer = Singleton::GetInstance().GetRenderer();
 	shader = Singleton::GetInstance().GetDefaultShader();
+	engine = Singleton::GetInstance().GetPhysicsEngine();
 
 	LoadAsteroidModel();
 }
@@ -12,6 +13,8 @@ Asteroid::Asteroid(Model* model)
 {
 	renderer = Singleton::GetInstance().GetRenderer();
 	shader = Singleton::GetInstance().GetDefaultShader();
+	engine = Singleton::GetInstance().GetPhysicsEngine();
+
 	copyModel = model;
 
 	LoadAsteroidModel();
@@ -55,4 +58,16 @@ void Asteroid::SetId(const std::string& id)
 {
 	model->id = id;
 	SetGameObjectId(id);
+}
+
+void Asteroid::AddPhysicsForthisObject()
+{
+	physicsObject = new PhysicsObject(model);
+	physicsObject->Initialize(AABB, false, STATIC);
+
+	physicsObject->gravityValue = 0;
+
+	engine->AddPhysicsObjects(physicsObject);
+
+
 }

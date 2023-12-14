@@ -303,6 +303,7 @@ void ApplicationRenderer::Start()
      asteroid5->SetRotation(glm::vec3(0, 90, 0));
      asteroid5->SetScale(glm::vec3(0.024));
      asteroid5->SetId("ASTEROID5");
+     asteroid5->AddPhysicsForthisObject();
 
      // SCENE 3 FIGHTERS
      FighterJet* fighter5 = new FighterJet(FighterJetModel);
@@ -330,6 +331,7 @@ void ApplicationRenderer::Start()
      fighter8->SetRotation(glm::vec3(40, 0, 0));
      fighter8->SetScale(glm::vec3(0.024f));
      fighter8->SetId("FIGHTER8");
+     fighter8->AddPhysicsForthisObject();
 
 
 
