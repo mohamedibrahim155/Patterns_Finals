@@ -210,7 +210,7 @@ void ApplicationRenderer::Start()
      spaceshipEntity = new SpaceShip();
 
 
-     AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
+   /*  AsteroidsGroups* asteroidGroup1 = new AsteroidsGroups(AsteroidGroupModels);
      asteroidGroup1->SetPosition(glm::vec3(190, -1, 40));
      asteroidGroup1->SetRotation(glm::vec3(0, 90, 0));
      asteroidGroup1->SetScale(glm::vec3(0.024));
@@ -226,16 +226,16 @@ void ApplicationRenderer::Start()
      asteroidGroup3->SetPosition(glm::vec3(10, 17, 80));
      asteroidGroup3->SetRotation(glm::vec3(0, -90, 0));
      asteroidGroup3->SetScale(glm::vec3(0.014));
-     asteroidGroup3->SetId("ASTEROIDGROUP3");
+     asteroidGroup3->SetId("ASTEROIDGROUP3");*/
 
 
-     Asteroid* asteroid1 = new Asteroid(Asteroid1Model);
-     asteroid1->SetPosition(glm::vec3(60, -1, 0));
-     asteroid1->SetRotation(glm::vec3(0, 90, 0));
-     asteroid1->SetScale(glm::vec3(0.034));
+     Asteroid* asteroid1 = new Asteroid(Asteroid3Model);
+     asteroid1->SetPosition(glm::vec3(8, 2, -25));
+     asteroid1->SetRotation(glm::vec3(90, 90, 0));
+     asteroid1->SetScale(glm::vec3(0.044));
      asteroid1->SetId("ASTEROID1");
 
-     Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
+    /* Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
      asteroid2->SetPosition(glm::vec3(80, -1, -20));
      asteroid2->SetRotation(glm::vec3(0, 90, 0));
      asteroid2->SetScale(glm::vec3(0.011));
@@ -252,7 +252,7 @@ void ApplicationRenderer::Start()
      asteroid4->SetPosition(glm::vec3(10, 4, -15));
      asteroid4->SetRotation(glm::vec3(90, 90, 0));
      asteroid4->SetScale(glm::vec3(0.007));
-     asteroid4->SetId("ASTEROID4");
+     asteroid4->SetId("ASTEROID4");*/
 
 
 
@@ -266,7 +266,7 @@ directionLight.diffuse =  glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 directionLight.specular = glm::vec4(0.1f, 0.1f, 0.1f, 1.0f);
 directionLight.intensity = 0.5f;
 
-
+directionLightModel->transform.SetRotation(glm::vec3(-80, 0, 90));
 
 
 
@@ -425,7 +425,7 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (!updateCommands)
+    //if (!updateCommands)
     {
         float cameraSpeed = 20;
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -493,8 +493,8 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
          if (key == GLFW_KEY_O && action == GLFW_PRESS)
          {
 
-             camera.transform.SetPosition(glm::vec3(10, 2, -40));
-             camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
+           //  camera.transform.SetPosition(glm::vec3(10, 2, -40));
+           //  camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
 
              updateCommands = !updateCommands;
          }
@@ -526,7 +526,7 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
          lastX = xpos;
          lastY = ypos;
      
-         if (!updateCommands)
+       //  if (!updateCommands)
          {
              if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS)
              {

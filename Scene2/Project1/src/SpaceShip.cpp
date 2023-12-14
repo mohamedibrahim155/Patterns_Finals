@@ -28,8 +28,9 @@ void SpaceShip:: LoadModel()
 {
 	model = new Model("Models/SpaceShip/SpaceShip.ply");
 	model->id = "SPACESHIP";
-	model->transform.SetPosition(glm::vec3(0, 0,0));
-	model->transform.SetScale(glm::vec3(0.05f));
+	model->transform.SetPosition(glm::vec3(-2, 6,3));
+	model->transform.SetRotation(glm::vec3(40, 90,0));
+	model->transform.SetScale(glm::vec3(0.02f));
 	render->AddModelsAndShader(model, defaultshader);
 
 
