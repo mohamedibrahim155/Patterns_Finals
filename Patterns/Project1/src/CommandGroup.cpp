@@ -73,6 +73,8 @@ void CommandGroup::UpdateParallelCommands(float deltaTime)
 			}
 		}
 
+
+
 		command->Update(deltaTime);
 	}
 	//for (size_t i = 0; i < this->parallelCommandsList.size(); i++)

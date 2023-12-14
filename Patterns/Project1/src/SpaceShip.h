@@ -3,8 +3,9 @@
 #include "GraphicsRender.h"
 #include "LuaManager.h"
 #include "LuaHandler.h"
+#include "GameObject.h"
 
-class SpaceShip
+class SpaceShip :public GameObject
 {
 public:
 	SpaceShip(GraphicsRender& render, Shader* shader, PhysicsEngine& engine, Camera& camera);
@@ -12,15 +13,12 @@ public:
 	~SpaceShip();
 
 
-	Model* model;
 	PhysicsObject* SpaceShipPhysics;
 
 	void LoadModel();
 
 	void Update(float deltaTime);
-	void UpdateCamera();
-	void SpaceShipInputs(GLFWwindow* window, float deltaTime);
-
+	
 	LuaHandler* m_LuaHandler;
 
 private:

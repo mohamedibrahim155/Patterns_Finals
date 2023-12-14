@@ -170,7 +170,7 @@ void ApplicationRenderer::Start()
 
     Singleton::GetInstance().SetRendererPhysicsEngineAndDefaultShader(render, defaultShader, PhysicsEngine);
 
-
+    camera.transform.SetPosition(glm::vec3(8, 0, -30));
 
     Model* Sphere = new Model((char*)"Models/DefaultSphere/Sphere.ply", true);
 
@@ -201,25 +201,6 @@ void ApplicationRenderer::Start()
      Sphere4->id = "Sphere4";
    //  Sphere4->transform.SetPosition(glm::vec3(0, -1, 0));
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-  //   modelData = loadModelDataFromFile("Model.txt");
-  //   CityModel = new Model("Models/City//City.obj");
-  //   CityModel->transform.SetPosition(glm::vec3(0,-5,0));
-  //   CityModel->transform.SetRotation(glm::vec3(0,0,0));
-  //   CityModel->transform.SetScale(glm::vec3(modelData[9].scale));
-  //   render.AddModelsAndShader(CityModel, defaultShader);
-
-  ////   cityPhysics = new PhysicsObject(CityModel);
-  // //  cityPhysics->Initialize(MESH_TRIANGLES,false,STATIC);
-  // //  PhysicsEngine.AddPhysicsObjects(cityPhysics);
-
-
-
-
-
-
-  // //  DrawDebugModelAABB(cityPhysics->GetModelAABB());
 
 
   //   //////////////////////////////////////////////////////////
@@ -228,8 +209,7 @@ void ApplicationRenderer::Start()
     // this->m_Ball = new Ball(render, defaultShader, PhysicsEngine);
    //  m_Ball->LoadModel();
 
-    // spaceshipEntity = new SpaceShip(render, defaultShader, PhysicsEngine,camera);
-   //  spaceshipEntity->LoadModel();
+     spaceshipEntity = new SpaceShip();
 
 
 
@@ -274,7 +254,7 @@ directionLight.intensity = 0.5f;
      moveCam.AssignCam(&camera);
 
     
-     
+    
 
      LuaManager::GetInstance().SetModelList(render.GetModelList()); // Setting All the game objects
 
