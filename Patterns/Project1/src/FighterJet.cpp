@@ -80,7 +80,11 @@ void FighterJet::AddPhysicsForthisObject()
 		{
 			if (other->model->id =="ASTEROID5")
 			{
-				std::cout << "Hit with The Asteroid 5 Successfully :( I'm dead" << std::endl;
+				ISFIGHTERCOLLIDED = true;
+
+				shader->Bind();
+				shader->setFloat("explosionOffset", explosionOffset);
+				explosionOffset += 0.5f;
 			}
 
 		});
@@ -88,6 +92,15 @@ void FighterJet::AddPhysicsForthisObject()
 	engine->AddPhysicsObjects(fighterPhysics);
 
 
+}
+
+void FighterJet::Update(float deltaTime)
+{
+	if (ISFIGHTERCOLLIDED)
+	{
+	
+
+	}
 }
 
 void FighterJet::SetId(const std::string& id)

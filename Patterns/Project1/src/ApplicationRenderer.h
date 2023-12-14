@@ -79,6 +79,7 @@ private:
 	Shader* lightShader;
 	Shader* StencilShader;
 	Shader* SkyboxShader;
+	Shader* DestroyShader;
 
 	Skybox* skybox;
 
@@ -108,6 +109,7 @@ private:
 	 float lastFrame;
 
 	 float scrollTime;
+	 float explosionOffset = 0;
 
 	 bool firstMouse;
 	 bool cameraMoveToTarget;

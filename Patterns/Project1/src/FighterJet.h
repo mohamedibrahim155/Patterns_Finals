@@ -4,6 +4,7 @@
 #include "GraphicsRender.h"
 #include "PhysicsEngine.h"
 
+extern bool ISFIGHTERCOLLIDED;
 class FighterJet : public GameObject
 {
 public:
@@ -19,6 +20,7 @@ public:
 	void SetScale(const glm::vec3& scale);
 
 	void  AddPhysicsForthisObject();
+	void Update(float deltaTime);
 	
 
 	void SetId(const std::string& id);
@@ -34,5 +36,8 @@ private:
 	Model* copyModel = nullptr;
 
 	PhysicsObject* fighterPhysics = nullptr;
+
+	float timeStep = 2;
+	float explosionOffset =0;
 
 };

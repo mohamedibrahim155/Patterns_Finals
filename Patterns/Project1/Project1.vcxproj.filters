@@ -450,5 +450,7 @@
       <Filter>Lua\Lua Scripts</Filter>
     </None>
     <None Include="World.lua" />
+    <None Include="Shaders\StarDestroyer.frag" />
+    <None Include="Shaders\StarDestroyer.vert" />
   </ItemGroup>
 </Project>

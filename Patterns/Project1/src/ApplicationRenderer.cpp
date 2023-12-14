@@ -1,6 +1,7 @@
 #include"ApplicationRenderer.h"
 #include "Singleton.h"
 
+bool ISFIGHTERCOLLIDED = false;
 
 ApplicationRenderer::ApplicationRenderer()
 {
@@ -67,6 +68,7 @@ void ApplicationRenderer::WindowInitialize(int width, int height,  std::string w
 
   
     defaultShader = new Shader("Shaders/Light_VertexShader.vert", "Shaders/Light_FragmentShader2.frag");
+    DestroyShader = new Shader("Shaders/StarDestroyer.vert", "Shaders/StarDestroyer.frag");
     lightShader = new Shader("Shaders/lighting.vert", "Shaders/lighting.frag", SOLID);
     StencilShader = new Shader("Shaders/StencilOutline.vert", "Shaders/StencilOutline.frag");
    
@@ -239,11 +241,7 @@ void ApplicationRenderer::Start()
 
 
 
-     //Asteroid* asteroid16 = new Asteroid(Asteroid3Model);
-     //asteroid16->SetPosition(glm::vec3(8, 2, -25));
-     //asteroid16->SetRotation(glm::vec3(90, 90, 0));
-     //asteroid16->SetScale(glm::vec3(0.044));
-     //asteroid16->SetId("ASTEROID16");
+   
 
      //Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
      //asteroid2->SetPosition(glm::vec3(80, -1, -20));
@@ -266,7 +264,11 @@ void ApplicationRenderer::Start()
 
 
 
-
+       //Asteroid* asteroid16 = new Asteroid(Asteroid3Model);
+     //asteroid16->SetPosition(glm::vec3(8, 2, -25));
+     //asteroid16->SetRotation(glm::vec3(90, 90, 0));
+     //asteroid16->SetScale(glm::vec3(0.044));
+     //asteroid16->SetId("ASTEROID16");
 
   /*   FighterJet* fighter1 = new FighterJet(FighterJetModel);
 
@@ -326,7 +328,7 @@ void ApplicationRenderer::Start()
      fighter7->SetId("FIGHTER7");
 
 
-     FighterJet* fighter8 = new FighterJet(FighterJetModel);
+     FighterJet* fighter8 = new FighterJet(FighterJetModel,DestroyShader);
      fighter8->SetPosition(glm::vec3(4, 0, 13));
      fighter8->SetRotation(glm::vec3(40, 0, 0));
      fighter8->SetScale(glm::vec3(0.024f));
@@ -392,11 +394,15 @@ directionLightModel->id = "DIRECTIONLIGHT";
      //LightRenderer
      lightManager.AddNewLight(directionLight);
 
-     lightManager.SetUniforms(defaultShader->ID);
-   
-
      defaultShader->Bind();
      defaultShader->setInt("skybox", 0);
+     lightManager.SetUniforms(defaultShader->ID);
+
+     DestroyShader->Bind();
+     lightManager.SetUniforms(DestroyShader->ID);
+
+    
+     
 
      moveCam.AssignCam(&camera);
 
@@ -464,6 +470,20 @@ void ApplicationRenderer::Render()
          defaultShader->setVec3("viewPos", camera.transform.position.x, camera.transform.position.y, camera.transform.position.z);
          defaultShader->setFloat("time", scrollTime);
          defaultShader->setBool("isDepthBuffer", false);
+
+         DestroyShader->Bind();
+         lightManager.UpdateUniformValues(DestroyShader->ID);
+         DestroyShader->setMat4("projection", _projection);
+         DestroyShader->setMat4("view", _view);
+         DestroyShader->setVec3("viewPos", camera.transform.position.x, camera.transform.position.y, camera.transform.position.z);
+         DestroyShader->setFloat("time", scrollTime);
+         DestroyShader->setBool("isDepthBuffer", false);
+      //   DestroyShader->setFloat("explosionOffset", explosionOffset);
+    
+
+
+
+
 
          lightShader->Bind();
          lightShader->setVec3("objectColor", glm::vec3(1, 1, 1));

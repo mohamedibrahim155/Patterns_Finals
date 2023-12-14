@@ -261,6 +261,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Example.lua" />
+    <None Include="Shaders\StarDestroyer.frag" />
+    <None Include="Shaders\StarDestroyer.vert" />
     <None Include="SpaceShip.lua" />
     <None Include="Shaders\color.frag" />
     <None Include="Shaders\color.vert" />
