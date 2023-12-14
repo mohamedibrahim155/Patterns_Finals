@@ -106,8 +106,16 @@ void OrientTo::SetStarted(bool isStarted)
 
 bool OrientTo::IsComplete()
 {
+	if (!updatedOnce)
+	{
+		return false;
+	}
+	if (lerpValue >= 1)
+	{
+		return true;
+	}
 
-	return lerpValue >= 1;
+	return false;
 }
 
 bool OrientTo::IsStarted()

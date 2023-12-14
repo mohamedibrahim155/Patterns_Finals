@@ -27,11 +27,11 @@
 
 
 SetGameObject("SPACESHIP")
-BeginCommand("SERIAL",3) 
+BeginCommand("PARALLEL",3) 
 MoveTo(1,1,0,0.2)
 OrientTo(-20,0,0,0.2)
 
-
+WaitForSeconds(5)
 
 OrientTo(-40,0,0,0.2)
 
@@ -42,3 +42,5 @@ OrientTo(40,0,0,0.1)
 MoveTo(20,1,20,.5)
 
 Endcommand(3)
+
+

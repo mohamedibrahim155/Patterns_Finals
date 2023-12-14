@@ -33,7 +33,23 @@ void CommandGroup::AddCommandGroup(const CommandGroup& commandGroup)
 
 void CommandGroup::UpdateSerialCommands(float deltaTime)
 {
-	if (!serialCommandsList.empty())
+	for (Command* command : serialCommandsList)
+	{
+		if (command->IsComplete()) continue;
+
+		if (!command->isinprogress)
+		{
+			command->Start();
+			command->isinprogress =true;
+		}
+
+		command->Update(deltaTime);
+		command->updatedOnce = true;
+		//command->updatedOnce = true;
+
+		return;
+	}
+	/*if (!serialCommandsList.empty())
 	{
 		Command* currentCommand = *this->serialCommandsList.begin();
 
@@ -50,7 +66,7 @@ void CommandGroup::UpdateSerialCommands(float deltaTime)
 			
 			delete currentCommand;
 		}
-	}
+	}*/
 }
 
 void CommandGroup::UpdateParallelCommands(float deltaTime)
@@ -69,13 +85,24 @@ void CommandGroup::UpdateParallelCommands(float deltaTime)
 			if (!command->IsComplete())
 			{
 				command->Update(deltaTime);
+				command->updatedOnce = true;
+				command->isinprogress =true;
 				return;
 			}
 		}
 
-
+		if (!command->isinprogress)
+		{
+			command->Start();
+			command->isinprogress =true;
+		}
+		if (command->IsComplete())
+		{
+			continue;	
+		}
 
 		command->Update(deltaTime);
+		command->updatedOnce = true;
 	}
 	//for (size_t i = 0; i < this->parallelCommandsList.size(); i++)
 	//{
@@ -125,7 +152,28 @@ void CommandGroup::Start()
 
 void CommandGroup::StartForParallelCommands()
 {
+	
 	if (parallelCommandsList.size()>0)
+	{
+		for (Command* command : parallelCommandsList)
+		{
+			if (command == nullptr) continue;
+
+			if (WaitForSeconds* waitCommand = dynamic_cast<WaitForSeconds*>(command))
+			{
+				command->Start();
+				command->isinprogress =true;
+				if (!command->IsComplete()) return;
+			}
+
+			command->Start();
+			command->isinprogress =true;
+		}
+	}
+	
+	
+	
+	/*if (parallelCommandsList.size()>0)
 	{
 		for (size_t i = 0; i < parallelCommandsList.size(); i++)
 		{
@@ -135,13 +183,28 @@ void CommandGroup::StartForParallelCommands()
 				parallelCommandsList[i]->SetStarted(true);
 			}
 		}
-	}
+	}*/
 	
 }
 
 void CommandGroup::StartForSerialCommand()
 {
-	if (!serialCommandsList.empty())
+
+	
+	if (serialCommandsList.size()>0)
+	{
+		for (Command* command : serialCommandsList)
+		{
+
+			if (command->IsComplete()) continue;
+			command->Start();
+			command->isinprogress=true;
+
+			return;
+		}
+	}
+	
+	/*if (!serialCommandsList.empty())
 	{
 		Command* FirstSerialCommand = *this->serialCommandsList.begin();
 		if (!FirstSerialCommand->IsStarted())
@@ -150,7 +213,7 @@ void CommandGroup::StartForSerialCommand()
 			FirstSerialCommand->SetStarted(true);
 		}
 
-	}
+	}*/
 }
 
 void CommandGroup::SetGroupID(const int& groupID)

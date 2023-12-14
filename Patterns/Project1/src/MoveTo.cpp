@@ -65,6 +65,7 @@ void MoveTo::Start()
     timeStep = 0;
 
 	isAnimationCompleted = false;
+	std::cout << "MOVE to start" << std::endl;
 }
 
 void MoveTo::Update(float deltaTime)
@@ -106,8 +107,16 @@ void MoveTo::SetStarted(bool isStarted)
 
 bool MoveTo::IsComplete()
 {
+	if (!updatedOnce)
+	{
+		return false;
+	}
+	if (lerpValue >= 1)
+	{
+		return true;
+	}
 
-	return lerpValue >= 1;
+	return false;
 }
 
 bool MoveTo::IsStarted()

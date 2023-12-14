@@ -46,13 +46,14 @@ void CommandManager::BeginCommandGroup( const CommandGroupType& type,  const int
 		
 		group->parentCommandGroup = currentCommandGroup;
 	}
-	
+	commandGroupList.push_back(group);
 		currentCommandGroup = group;
 }
 
 void CommandManager::EndCommandGroup(const int& groupId)
 {
-	commandGroupList.push_back(currentCommandGroup);
+	currentCommandGroup->Start();
+	
 	currentCommandGroup = currentCommandGroup->parentCommandGroup;;
 
 }
@@ -61,10 +62,10 @@ void CommandManager::Start()
 {
 	if (!commandGroupList.empty())
 	{
-		for (size_t i = 0; i < commandGroupList.size(); i++)
-		{
-			commandGroupList[i]->Start();  // Start for firstSerial command and All the parallel commands list.
-		}
+		//for (size_t i = 0; i < commandGroupList.size(); i++)
+		//{
+		//	//commandGroupList[i]->Start();  // Start for firstSerial command and All the parallel commands list.
+		//}
 	}	
 }
 
