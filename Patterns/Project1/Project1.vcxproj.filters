@@ -198,14 +198,14 @@
     <ClCompile Include="src\WaitForSecond.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
-    <ClCompile Include="src\AsteroidsGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\AsteroidGroups.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\MoveAlongOneAxisWithTime.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asteroid.cpp">
+      <Filter>Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -375,7 +375,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MoveAlongOneAxisWithTime.h">
-      <Filter>Header Files</Filter>
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Asteroid.h">
+      <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -434,8 +437,6 @@
     <None Include="Sphere.lua">
       <Filter>Lua\Lua Scripts</Filter>
     </None>
-    <None Include="World.lua">
-      <Filter>Lua\Lua Scripts</Filter>
-    </None>
+    <None Include="World.lua" />
   </ItemGroup>
 </Project>

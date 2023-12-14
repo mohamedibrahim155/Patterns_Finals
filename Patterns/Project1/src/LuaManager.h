@@ -16,6 +16,7 @@ class OrientTo;
 class FollowObject;
 class WaitForSeconds;
 class GameObject;
+class MoveAlongAxisWithTime;
 
 class SphereTest;
 
@@ -68,6 +69,7 @@ private:
 	static int LuaSpawnGameObject(lua_State* L);
 
 	static  int LuaWaitForSeconds(lua_State* L);
+	static  int LuaMoveAlongAxis(lua_State* L);
 
 	Model* model;
 

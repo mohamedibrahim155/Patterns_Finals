@@ -3,7 +3,7 @@
 #include "OrientTo.h"
 #include "FollowObject.h"
 #include "WaitForSeconds.h"
-
+#include "MoveAlongOneAxisWithTime.h"
 #include "GameObject.h"
 
 #include "Sphere.h"
@@ -32,6 +32,7 @@ void LuaManager::RegisterCommands(lua_State* L)
 	lua_register(L, "FollowObject", LuaFollowObject);
 	lua_register(L, "SpawnObject", LuaSpawnGameObject);
 	lua_register(L, "WaitForSeconds", LuaWaitForSeconds);
+	lua_register(L, "MoveAlongAxisWithTime", LuaMoveAlongAxis);
 
 }
 
@@ -333,6 +334,26 @@ int LuaManager::LuaWaitForSeconds(lua_State* L)
 	Command* command = new WaitForSeconds(waitTime);
 	
 	CommandManager::GetInstance().AddCommands(command);
+	return 0;
+}
+
+int LuaManager::LuaMoveAlongAxis(lua_State* L)
+{
+	int paramLength = lua_gettop(L);
+
+	int axis = lua_tonumber(L, 1);
+
+	float time = static_cast<float>(lua_tonumber(L, 2));
+	float speed = static_cast<float>(lua_tonumber(L, 3));
+
+	
+	Model* model = GetInstance().model;
+
+	Command* command = new MoveAlongAxisWithTime(model,axis,time,speed);
+
+	CommandManager::GetInstance().AddCommands(command);
+
+
 	return 0;
 }
 

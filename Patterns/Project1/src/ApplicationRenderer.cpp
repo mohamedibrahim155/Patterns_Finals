@@ -202,6 +202,10 @@ void ApplicationRenderer::Start()
    
      Model* AsteroidGroupModels = new Model("Models/Asteroids/AsteroidGroup.ply");
 
+     Model* Asteroid1Model= new Model("Models/Asteroids/Asteroid_1.ply");
+     Model* Asteroid2Model= new Model("Models/Asteroids/Asteroid_2.ply");
+     Model* Asteroid3Model= new Model("Models/Asteroids/Asteroid_3.ply");
+
 
      spaceshipEntity = new SpaceShip();
 
@@ -224,6 +228,24 @@ void ApplicationRenderer::Start()
      asteroidGroup3->SetScale(glm::vec3(0.014));
      asteroidGroup3->SetId("ASTEROIDGROUP3");
 
+
+     Asteroid* asteroid1 = new Asteroid(Asteroid1Model);
+     asteroid1->SetPosition(glm::vec3(60, -1, 0));
+     asteroid1->SetRotation(glm::vec3(0, 90, 0));
+     asteroid1->SetScale(glm::vec3(0.034));
+     asteroid1->SetId("ASTEROID1");
+
+     Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
+     asteroid2->SetPosition(glm::vec3(83, -1, -20));
+     asteroid2->SetRotation(glm::vec3(0, 90, 0));
+     asteroid2->SetScale(glm::vec3(0.0011));
+     asteroid2->SetId("ASTEROID2");
+
+     Asteroid* asteroid3 = new Asteroid(Asteroid3Model);
+     asteroid3->SetPosition(glm::vec3(190, -1, 40));
+     asteroid3->SetRotation(glm::vec3(0, 90, 0));
+     asteroid3->SetScale(glm::vec3(0.024));
+     asteroid3->SetId("ASTEROID3");
 
 
 
@@ -424,50 +446,7 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
 
 }
 
-void ApplicationRenderer::DrawDebugModelAABB( const cAABB& aabb)
-{
-    
-  
-        glm::vec3 targetExtents = 0.5f * (aabb.maxV - aabb.minV);
-        glm::vec3 center = 0.5f * (aabb.minV + aabb.maxV);
 
-        Model* debugCube = new Model(*defaultBox);
-        debugCube->transform.SetPosition(center);
-        debugCube->transform.SetRotation(glm::vec3(0));
-        debugCube->transform.SetScale(targetExtents);
-        //render.AddModelsAndShader(debugCube, defaultShader);
-        debugCube->meshes[0]->isWireFrame = true;
-        debugCube->Draw(*lightShader);
-
-
-
-    
-}
-
-void ApplicationRenderer::DrawDebugBvhNodeAABB(BvhNode* node)
-{
-    if (node ==nullptr)
-    {
-        return;
-    }
-    //if (node->nodeIndex == recusiveCount)
-    //{
-    //    DrawDebugModelAABB(node->GetModelAABB());
-    //   return;
-    //}
-
-    if (node->trianglesIndex.size() != 0)
-    {
-        DrawDebugModelAABB(node->UpdateAABB());
-    }
-
-    if (node->leftChild == nullptr) return;
-
-    DrawDebugBvhNodeAABB(node->leftChild);
-    DrawDebugBvhNodeAABB(node->rightChild);
-
-
-}
 
 
 

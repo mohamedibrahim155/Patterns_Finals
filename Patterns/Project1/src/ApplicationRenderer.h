@@ -22,6 +22,7 @@
 #include "SpaceShip.h"
 #include "Ball.h"
 #include "AsteroidGroups.h"
+#include "Asteroid.h"
 struct ModelData
 {
 
@@ -59,8 +60,7 @@ public:
 
 	void ProcessInput(GLFWwindow* window);
 	
-	void DrawDebugModelAABB(const cAABB& aabb);
-	void DrawDebugBvhNodeAABB(BvhNode* node);
+
 
 	int recusiveCount = 0;
 
