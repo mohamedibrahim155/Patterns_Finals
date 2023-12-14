@@ -427,28 +427,32 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    float cameraSpeed=20;
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    if (!updateCommands)
     {
-       camera.ProcessKeyboard(FORWARD, deltaTime * cameraSpeed);
-    }
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-    {
-        camera.ProcessKeyboard(BACKWARD, deltaTime * cameraSpeed);
+        float cameraSpeed = 20;
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        {
+            camera.ProcessKeyboard(FORWARD, deltaTime * cameraSpeed);
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        {
+            camera.ProcessKeyboard(BACKWARD, deltaTime * cameraSpeed);
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        {
+            camera.ProcessKeyboard(LEFT, deltaTime * cameraSpeed);
+
+        }
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        {
+            camera.ProcessKeyboard(RIGHT, deltaTime * cameraSpeed);
+
+        }
     }
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-    {
-        camera.ProcessKeyboard(LEFT, deltaTime * cameraSpeed);
 
-    }
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-    {
-        camera.ProcessKeyboard(RIGHT, deltaTime * cameraSpeed);
-
-    }
-
-    //spaceshipEntity->SpaceShipInputs(window,deltaTime);
+   
 
 
 }
@@ -490,6 +494,10 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
 
          if (key == GLFW_KEY_O && action == GLFW_PRESS)
          {
+
+             camera.transform.SetPosition(glm::vec3(10, 2, -40));
+             camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
+
              updateCommands = !updateCommands;
          }
 
@@ -520,10 +528,14 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
          lastX = xpos;
          lastY = ypos;
      
-         if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS)
+         if (!updateCommands)
          {
-             camera.ProcessMouseMovement(xoffset, yoffset);
+             if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS)
+             {
+                 camera.ProcessMouseMovement(xoffset, yoffset);
+             }
          }
+         
  }
 
  void ApplicationRenderer::MouseScroll(GLFWwindow* window, double xoffset, double yoffset)
