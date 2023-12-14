@@ -277,9 +277,7 @@ directionLight.intensity = 0.5f;
      render.selectedModel = nullptr;
 
      render.AddModelsAndShader(directionLightModel, lightShader);
-     render.AddModelsAndShader(Sphere2, defaultShader);
-     render.AddModelsAndShader(Sphere3, defaultShader);
-     render.AddModelsAndShader(Sphere4, defaultShader);
+
 
 
      
