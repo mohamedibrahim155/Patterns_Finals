@@ -236,16 +236,23 @@ void ApplicationRenderer::Start()
      asteroid1->SetId("ASTEROID1");
 
      Asteroid* asteroid2 = new Asteroid(Asteroid2Model);
-     asteroid2->SetPosition(glm::vec3(83, -1, -20));
+     asteroid2->SetPosition(glm::vec3(80, -1, -20));
      asteroid2->SetRotation(glm::vec3(0, 90, 0));
-     asteroid2->SetScale(glm::vec3(0.0011));
+     asteroid2->SetScale(glm::vec3(0.011));
      asteroid2->SetId("ASTEROID2");
 
-     Asteroid* asteroid3 = new Asteroid(Asteroid3Model);
-     asteroid3->SetPosition(glm::vec3(190, -1, 40));
-     asteroid3->SetRotation(glm::vec3(0, 90, 0));
-     asteroid3->SetScale(glm::vec3(0.024));
+     Asteroid* asteroid3 = new Asteroid(Asteroid2Model);
+     asteroid3->SetPosition(glm::vec3(20, -3, 15));
+     asteroid3->SetRotation(glm::vec3(90, 90, 0));
+     asteroid3->SetScale(glm::vec3(0.008));
      asteroid3->SetId("ASTEROID3");
+
+
+     Asteroid* asteroid4 = new Asteroid(Asteroid2Model);
+     asteroid4->SetPosition(glm::vec3(10, 4, -15));
+     asteroid4->SetRotation(glm::vec3(90, 90, 0));
+     asteroid4->SetScale(glm::vec3(0.007));
+     asteroid4->SetId("ASTEROID4");
 
 
 
