@@ -18,6 +18,8 @@ SpaceShip::SpaceShip()
 	this->render = Singleton::GetInstance().GetRenderer();
 	this->defaultshader = Singleton::GetInstance().GetDefaultShader();
 	LoadModel();
+
+	SetActive(false);
 }
 
 SpaceShip::SpaceShip(const std::string id)
@@ -27,6 +29,8 @@ SpaceShip::SpaceShip(const std::string id)
 	this->id = id;
 
 	LoadModel();
+
+	SetActive(false);
 
 }
 
@@ -56,6 +60,11 @@ void SpaceShip::Update(float deltaTime)
 
 
 	
+}
+
+void SpaceShip::SetActive(const bool& isactive)
+{
+	model->isVisible = isactive;
 }
 
 

@@ -20,6 +20,7 @@ FighterJet::FighterJet(Model* copyModel)
 	this->copyModel = copyModel;
 
 	LoadFighterModel();
+	SetActive(false);
 }
 
 FighterJet::FighterJet(Model* copyModel, Shader* DestroyShader)
@@ -31,6 +32,7 @@ FighterJet::FighterJet(Model* copyModel, Shader* DestroyShader)
 	this->copyModel = copyModel;
 
 	LoadFighterModel();
+	SetActive(false);
 }
 
 FighterJet::~FighterJet()
@@ -107,4 +109,9 @@ void FighterJet::SetId(const std::string& id)
 {
 	model->id = id;
 	SetGameObjectId(id);
+}
+
+void FighterJet::SetActive(const bool& isactive)
+{
+	model->isVisible = isactive;
 }

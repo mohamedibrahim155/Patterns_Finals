@@ -7,6 +7,8 @@ AsteroidsGroups::AsteroidsGroups()
 	shader = Singleton::GetInstance().GetDefaultShader();
 
 	LoadAsteroidGroupModel();
+
+	SetActive(false);
 }
 
 AsteroidsGroups::AsteroidsGroups(Model* model)
@@ -17,6 +19,8 @@ AsteroidsGroups::AsteroidsGroups(Model* model)
 	copyModel = model;
 
 	LoadAsteroidGroupModel();
+
+	SetActive(false);
 }
 
 AsteroidsGroups::~AsteroidsGroups()
@@ -57,4 +61,9 @@ void AsteroidsGroups::SetId(const std::string& id)
 {
 	model->id = id;
 	SetGameObjectId(id);
+}
+
+void AsteroidsGroups::SetActive(const bool& isActive)
+{
+	model->isVisible = isActive;
 }

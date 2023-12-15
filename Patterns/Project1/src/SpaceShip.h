@@ -22,6 +22,8 @@ public:
 	
 	LuaHandler* m_LuaHandler;
 
+	void SetActive(const bool& isactive);
+
 private:
 	GraphicsRender* render;
 	Shader* defaultshader;

@@ -18,6 +18,8 @@ public:
 	void SetScale(const glm::vec3& scale);
 
 	void SetId(const std::string& id);
+
+	void SetActive(const bool& isActive);
 private:
 
 	GraphicsRender* renderer;

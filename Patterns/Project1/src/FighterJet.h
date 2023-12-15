@@ -24,6 +24,7 @@ public:
 	
 
 	void SetId(const std::string& id);
+	void SetActive(const bool& isactive);
 
 private:
 

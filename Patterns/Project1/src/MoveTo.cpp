@@ -66,6 +66,10 @@ void MoveTo::Start()
 
 	isAnimationCompleted = false;
 	std::cout << "MOVE to start" << std::endl;
+	if (!model->isVisible)
+	{
+		model->isVisible = true;
+	}
 }
 
 void MoveTo::Update(float deltaTime)

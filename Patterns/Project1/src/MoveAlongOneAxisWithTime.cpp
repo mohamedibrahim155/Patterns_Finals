@@ -16,6 +16,11 @@ MoveAlongAxisWithTime::~MoveAlongAxisWithTime()
 void MoveAlongAxisWithTime::Start()
 {
 	timeStep = 0;
+
+	if (!model->isVisible)
+	{
+		model->isVisible = true;
+	}
 }
 
 void MoveAlongAxisWithTime::Update(float deltatime)

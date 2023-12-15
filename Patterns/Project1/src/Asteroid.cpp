@@ -7,6 +7,8 @@ Asteroid::Asteroid()
 	engine = Singleton::GetInstance().GetPhysicsEngine();
 
 	LoadAsteroidModel();
+
+	SetActive(false);
 }
 
 Asteroid::Asteroid(Model* model)
@@ -18,6 +20,7 @@ Asteroid::Asteroid(Model* model)
 	copyModel = model;
 
 	LoadAsteroidModel();
+	SetActive(false);
 }
 
 Asteroid::~Asteroid()
@@ -58,6 +61,11 @@ void Asteroid::SetId(const std::string& id)
 {
 	model->id = id;
 	SetGameObjectId(id);
+}
+
+void Asteroid::SetActive(const bool& isactive)
+{
+	model->isVisible = isactive;
 }
 
 void Asteroid::AddPhysicsForthisObject()
