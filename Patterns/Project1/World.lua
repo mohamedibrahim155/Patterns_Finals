@@ -451,6 +451,8 @@ function Scene5()
       ScaleTo(0,0,0,0)
      Endcommand(2)
 
+     
+
       SetGameObject("FIGHTER12")
       BeginCommand("PARALLEL",1) 
       WaitForSeconds(delayTimeScene4)
@@ -458,10 +460,18 @@ function Scene5()
       Endcommand(1)
 
       SetGameObject("FIGHTER12")
+      
       BeginCommand("SERIAL",1) 
       WaitForSeconds(delayTimeScene4)
        MoveTo(8,2,10,3)
        Endcommand(1)
+
+       SetGameObject("ASTEROID_STATIC")
+       BeginCommand("SERIAL",1) 
+       WaitForSeconds(delayTimeScene4)
+       MoveTo(15,-1.9,22,0)
+       Endcommand(1)
+      
 end
 
 

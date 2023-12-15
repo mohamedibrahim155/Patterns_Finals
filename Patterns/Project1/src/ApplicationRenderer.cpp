@@ -193,6 +193,7 @@ void ApplicationRenderer::Start()
      Model* Asteroid1Model= new Model("Models/Asteroids/Asteroid_1.ply");
      Model* Asteroid2Model= new Model("Models/Asteroids/Asteroid_2.ply");
      Model* Asteroid3Model= new Model("Models/Asteroids/Asteroid_3.ply");
+     Model* Asteroid4Model= new Model("Models/Asteroids/Asteroid_4.ply");
 
      Model* FighterJetModel = new Model("Models/FighterJet/FighterJet.ply");
 
@@ -408,7 +409,7 @@ void ApplicationRenderer::Start()
      Model* box = new Model(*defaultBox);
      box->transform.SetPosition(glm::vec3(8, 2, 10));
      box->id = "BOX_TRIGGER";
-     box->isVisible = true;
+     box->isVisible = false;
      render.AddModelsAndShader(box, defaultShader);
 
      PhysicsObject* BoxPhyiscs = new PhysicsObject(box);
@@ -416,6 +417,12 @@ void ApplicationRenderer::Start()
      BoxPhyiscs->gravityValue = 0;
      PhysicsEngine.AddPhysicsObjects(BoxPhyiscs);
 
+
+     Asteroid* asteroidStatic = new Asteroid(Asteroid4Model);
+     asteroidStatic->SetPosition(glm::vec3(15, -1.9, -22));
+     asteroidStatic->SetRotation(glm::vec3(0, 0, 0));
+     asteroidStatic->SetScale(glm::vec3(1));
+     asteroidStatic->SetId("ASTEROID_STATIC");
 
 
 
@@ -435,6 +442,7 @@ directionLight.intensity = 0.5f;
 
 
 directionLightModel->id = "DIRECTIONLIGHT";
+directionLightModel->isVisible = false;
 //directionLightModel->transform.SetRotation(glm::vec3(-90, 0, 90));
 
 
