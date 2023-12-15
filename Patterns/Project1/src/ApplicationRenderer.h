@@ -80,6 +80,7 @@ private:
 	Shader* StencilShader;
 	Shader* SkyboxShader;
 	Shader* DestroyShader;
+	Shader* DestroyShader2;
 
 	Skybox* skybox;
 

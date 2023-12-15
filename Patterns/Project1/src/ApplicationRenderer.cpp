@@ -69,6 +69,7 @@ void ApplicationRenderer::WindowInitialize(int width, int height,  std::string w
   
     defaultShader = new Shader("Shaders/Light_VertexShader.vert", "Shaders/Light_FragmentShader2.frag");
     DestroyShader = new Shader("Shaders/StarDestroyer.vert", "Shaders/StarDestroyer.frag");
+    DestroyShader2 = new Shader("Shaders/StarDestroyer.vert", "Shaders/StarDestroyer.frag");
     lightShader = new Shader("Shaders/lighting.vert", "Shaders/lighting.frag", SOLID);
     StencilShader = new Shader("Shaders/StencilOutline.vert", "Shaders/StencilOutline.frag");
    
@@ -175,32 +176,17 @@ void ApplicationRenderer::Start()
     camera.transform.SetPosition(glm::vec3(8, 2, -30));
 
     Model* Sphere = new Model((char*)"Models/DefaultSphere/Sphere.ply", true);
-
-
-    //render.AddModelsAndShader(CamPlaceholder, defaultShader);
      defaultBox = new Model("Models/Box/DefaultCube.fbx");
 
 
-     Sphere->transform.position.x += 2;
-
-    
-
+   
 
      Model* directionLightModel = new Model(*Sphere);
      directionLightModel->transform.SetPosition(glm::vec3(1.0f, 3.0f, 0.0f));
      directionLightModel->transform.SetRotation(glm::vec3(-60, 0, 0));
      directionLightModel->transform.SetScale(glm::vec3(0.1f));
 
-     Model* Sphere2 = new Model(*Sphere);
-     Sphere2->id = "Sphere2";
 
-
-     Model* Sphere3 = new Model(*Sphere);
-     Sphere3->id = "Sphere3";
-
-
-     Model* Sphere4 = new Model(*Sphere);
-     Sphere4->id = "Sphere4";
    
      Model* AsteroidGroupModels = new Model("Models/Asteroids/AsteroidGroup.ply");
 
@@ -340,30 +326,6 @@ void ApplicationRenderer::Start()
      fighter8->AddPhysicsForthisObject();
 
 
-
-     // SCENE 3 Asteroids
-     //////////Asteroid* asteroid5 = new Asteroid(Asteroid2Model);
-     //////////asteroid5->SetPosition(glm::vec3(80, -1, -20));
-     //////////asteroid5->SetRotation(glm::vec3(0, 90, 0));
-     //////////asteroid5->SetScale(glm::vec3(0.011));
-     //////////asteroid5->SetId("ASTEROID5");
-
-     //////////Asteroid* asteroid6 = new Asteroid(Asteroid2Model);
-     //////////asteroid6->SetPosition(glm::vec3(20, -3, 15));
-     //////////asteroid6->SetRotation(glm::vec3(90, 90, 0));
-     //////////asteroid6->SetScale(glm::vec3(0.008));
-     //////////asteroid6->SetId("ASTEROID6");
-
-
-     //////////Asteroid* asteroid7 = new Asteroid(Asteroid2Model);
-     //////////asteroid7->SetPosition(glm::vec3(10, 4, -15));
-     //////////asteroid7->SetRotation(glm::vec3(90, 90, 0));
-     //////////asteroid7->SetScale(glm::vec3(0.007));
-     //////////asteroid7->SetId("ASTEROID7");
-
-
-
-
 #pragma endregion
 //
 //
@@ -421,13 +383,6 @@ void ApplicationRenderer::Start()
      spaceshipEntity2->model->transform.SetPosition(glm::vec3(12, 6, 30));
      spaceshipEntity2->model->transform.SetRotation(glm::vec3(-20, 90, 0));
      spaceshipEntity2->model->transform.SetScale(glm::vec3(0.04f));
-     //_model->id = "FalconFour";
-     //SetGameObjectId(_model->id);
-     //_model->transform.SetPosition(glm::vec3(12, 6, 30));
-     //_model->transform.SetRotation(glm::vec3(-20, 90, 0));
-     //_model->transform.SetScale(glm::vec3(0.04f));
-
-
 
 
 #pragma endregion
@@ -435,7 +390,7 @@ void ApplicationRenderer::Start()
 #pragma region SCENE 5
 
 
-     FighterJet* fighter12 = new FighterJet(FighterJetModel, DestroyShader);
+     FighterJet* fighter12 = new FighterJet(FighterJetModel, DestroyShader2);
      fighter12->SetPosition(glm::vec3(5, 2, -33));
      fighter12->SetRotation(glm::vec3(90, 0, 0));
      fighter12->SetScale(glm::vec3(0.034f));
@@ -586,7 +541,13 @@ void ApplicationRenderer::Render()
       //   DestroyShader->setFloat("explosionOffset", explosionOffset);
     
 
-
+         DestroyShader2->Bind();
+         lightManager.UpdateUniformValues(DestroyShader2->ID);
+         DestroyShader2->setMat4("projection", _projection);
+         DestroyShader2->setMat4("view", _view);
+         DestroyShader2->setVec3("viewPos", camera.transform.position.x, camera.transform.position.y, camera.transform.position.z);
+         DestroyShader2->setFloat("time", scrollTime);
+         DestroyShader2->setBool("isDepthBuffer", false);
 
 
 
@@ -657,7 +618,7 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-  //  if (!updateCommands)
+    if (!updateCommands)
     {
         float cameraSpeed = 20;
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -725,8 +686,8 @@ void ApplicationRenderer::ProcessInput(GLFWwindow* window)
          if (key == GLFW_KEY_O && action == GLFW_PRESS)
          {
 
-             //camera.transform.SetPosition(glm::vec3(10, 2, -40));
-            // camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
+             camera.transform.SetPosition(glm::vec3(8, 2, -37));
+             camera.transform.SetRotation(glm::vec3(0.0f, 180.0f, 0.0f));
 
              updateCommands = !updateCommands;
          }
